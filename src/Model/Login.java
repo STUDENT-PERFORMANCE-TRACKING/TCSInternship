@@ -19,6 +19,5 @@ public class Login {
 		EmailId = emailId;
 	}
 	
-	
 
 }
