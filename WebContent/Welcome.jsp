@@ -9,7 +9,7 @@
 </head>
 <body>
 
-Welcome  <s:property value="login" />
+Welcome  <s:property value="stt.getFirstName()" />
 
 </body>
 </html>

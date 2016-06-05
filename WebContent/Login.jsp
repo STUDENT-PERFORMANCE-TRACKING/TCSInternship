@@ -85,6 +85,8 @@
 						<div class = "modal-body" >
                 			<form name="form1" method="post">
 							
+								<p><font size="3" color="red"><s:property value="loginstatus" /></font></p>
+							
 								<div class = "from-group" >
                     				<input name="EmailId" type="email" class="form-control input-lg" placeholder="User Name"  required/><br>
                     			</div>
@@ -96,7 +98,6 @@
 								<div class = "form-group">
 									<input type = "submit" value = "Login" class = "btn btn-block btn-lg btn-primary">
 								</div>  
-								<s:property value="loginstatus" />
 								
 							</form>
 						</div>

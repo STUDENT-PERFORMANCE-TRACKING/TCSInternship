@@ -10,27 +10,44 @@ public class Login extends ActionSupport implements ModelDriven
 	
 	private Model.Login login = new Model.Login();
 	private String loginstatus;
+	private Model.Student stt=null;
 	
-	
+	public Model.Student getStt() {
+		return stt;
+	}
+
+
+
+	public void setStt(Model.Student stt) {
+		this.stt = stt;
+	}
+
+
+
 	public String studentLogin()
 	{
 		
-		//Controller.Login logincontroller = new Controller.Login();
+		Controller.Login logincontroller = new Controller.Login();
 		
-		//List<Model.Student> student=null;
-		//String s = logincontroller.checkStudentLoginCredential(login);
+		List<Model.Student> student=null;
+		student = logincontroller.checkStudentLoginCredential(login);
 		
-		String s="jfjhfjh";
-		
-		if(s==null || s=="")
+			
+		if(student.size()==0)
 		{
-			loginstatus = "Wrong emailId or password!";
+			setLoginstatus("Wrong emailId or password!");
 			return ERROR;
 			
 		}
 		else
 		{
-			loginstatus = "Good emailId or password!";
+			for(Model.Student st : student)
+			{
+				setStt(st);
+				//getStt().getFirstName();
+				//setLoginstatus(" Good emailId or password!");
+			}
+			
 			return LOGIN;
 			
 		}
