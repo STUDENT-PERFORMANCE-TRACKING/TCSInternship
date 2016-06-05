@@ -1,0 +1,128 @@
+.navbar-default{
+	background-color:#a26411;
+	margin-bottom:0px;
+	border:none;
+	border-radius:0px;
+}
+.navbar-default .navbar-nav > li > a{
+    color: white;
+	font-weight:bold;
+}
+
+ .navbar-default .navbar-nav > .active > a, 
+ .navbar-default .navbar-nav > .active > a:hover, 
+ .navbar-default .navbar-nav > .active > a:focus {
+      color:#f26d2c;
+      background: white;
+	  font-weight:bold;
+ }
+.navbar-default .navbar-brand {
+	padding-left:100px;
+    color: white;
+}
+
+.navbar-default .navbar-nav {
+	padding-left:100px;
+    
+}
+.headr{
+	background-image:url(nature_92-wallpaper-1366x768.jpg);	
+}
+#title {
+	padding-top:100px;
+	padding-bottom:30px;
+	letter-spacing:5px;
+	word-spacing:10px;
+	text-align:center;
+	font-size:70px;
+	color:white;
+	font-family:"Engravers MT";
+	
+}
+#quot{
+	padding-bottom:30px;
+	letter-spacing:5px;
+	word-spacing:10px;
+	text-align:center;
+	font-size:30px;
+	color:white;
+	font-family:"Monotype Corsiva";
+}
+#but {
+	
+	text-align:center;
+	padding-bottom:260px;
+	
+}
+#but > button {
+	background-color:#f26d2c;
+	border-radius:2px;
+	border:none;
+	padding:10px;
+	letter-spacing:1px;
+	word-spacing:5px;
+	font-size:20px;
+	font-family:Garamond;
+	color:white;
+	
+}
+h2 {
+	color:#5b5959;
+	background-color:white;
+	padding-bottom:50px;
+	padding-top:50px;
+	letter-spacing:5px;
+	word-spacing:10px;
+	text-align:center;
+	font-family:"Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+	font-size:50px;
+}
+#ser{
+	padding-top:30px;
+	padding-bottom:30px;
+	color:white;
+	font-size:20px;
+	text-align:center;
+	background-color:#f26d2c;
+}
+#ser > div > ul > li {
+		
+	list-style:none;
+	padding:10px;
+	font-size:40px;
+	color:white;
+}
+#sec1 > ul > li{
+		list-style:none;
+		text-align:center;
+		color:#5b5959;
+}
+#sec1 > ul > li > p{
+		list-style:none;
+		text-align:center;
+		font-size:30px;
+		color:#5b5959;
+}
+#con > ul > li {color:white;
+list-style:none;
+text-align:center;
+font-size:30px;
+		
+}
+#con > ul > li > h2{color:white;
+background-color:#5b5959;
+		
+}
+#con > ul > li > span{font-size:50px;
+padding-bottom:20px;
+		
+}
+#gau{
+	padding-top:20px;
+	color:white;
+	letter-spacing:5px;
+	word-spacing:10px;
+	text-align:center;
+	font-family:SimSun-ExtB;
+	font-size:30px;
+}
