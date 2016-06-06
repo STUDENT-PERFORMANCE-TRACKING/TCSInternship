@@ -13,7 +13,7 @@
 		
 		<action name="loginAction"	class="Business.Login" method="studentLogin">
 			
-			<result name="success">Welcome.jsp</result>
+			<result name="login">Welcome.jsp</result>
 			<result name="error">Login.jsp</result>
 			
 		</action>
