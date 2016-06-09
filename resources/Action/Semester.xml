@@ -9,12 +9,11 @@
 	<constant name="struts.devMode" value="false" />
 	<constant name="struts.custom.i18n.resources" value="resources/Message"></constant>
 
-	<package name="Login" extends="struts-default" namespace="/" >	
+	<package name="Semester" extends="struts-default" namespace="/" >	
 		
-		<action name="loginAction"	class="Business.Login" method="signIn">
+		<action name="semesterAction"	class="Business.Semester" method="semester">
 			
-			<result name="success">Semester.jsp</result>
-			<result name="error">Login.jsp</result>
+			<result name="success">Result.jsp</result>
 			
 		</action>
 		

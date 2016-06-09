@@ -17,6 +17,7 @@ public class Student {
 	private String LastName;
 	private String Password;
 	private String EmailId;
+		
 	
 	@Id
 	@GeneratedValue
@@ -75,4 +76,6 @@ public class Student {
 	public void setEmailId(String emailId) {
 		EmailId = emailId;
 	}
+	
+	
 }

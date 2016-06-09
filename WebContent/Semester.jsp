@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%@ taglib prefix="s" uri = "/struts-tags" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
@@ -49,46 +50,40 @@
 	<div class="container-fluid">
 		<div class="row">
 			 
-			<div class="col-md-2"></div>
-			
+			<div class="col-md-2">
+				Result
+			</div>
 			
 			<div class="col-md-10" style="background-color:#FFFFFF;">
-			
-				<!-- Start Of Sign-in Box -->
-				<div class = "modal-dialog jumbotron" style="box-shadow:3px 3px 3px  #888888;border-radius:5px" >
-		 			
-					<div calss = "modal-content"> 
-						<div class = "modal-header" style="text-shadow:1px 1px 5px #888888;padding-top:0px;" >
-							<h1 class = "text-center" style="padding:0px;">Sign-In</h1>
+				<div class="panel-body col-md-10" style="padding:169px">
+					
+					<form action="semesterAction" method="get">
+						<div style="margin:10px">
+							<h3><strong>please select your semester and press enter to view your result.</strong></h3>
 						</div>
 						
-						<div class = "modal-body" >
-                			<form name="LoginForm" action="loginAction" method="post">
-							
-								<p><font size="3" color="red"><s:property value="loginstatus" /></font></p>
-							
-								<div class = "from-group" >
-                    				<input name="EmailId" type="email" class="form-control input-lg" placeholder="User Name"  required/><br>
-                    			</div>
-								
-               					<div class = "from-group">
-                    				<input name="Password" type="password" class="form-control input-lg" placeholder="Password" required /><br>
-                    			</div>
-								
-								<div class = "form-group">
-									<input type = "submit" value = "Login" class = "btn btn-block btn-lg btn-primary">
-								</div>  
-								
-							</form>
-						</div>
+						<select name="semester" class="form-control ">
+							<option selected name="1">1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+							<option>6</option>
+							<option>7</option>
+							<option>8</option>
+						</select>
 						
-					</div>
-				</div>
-				<!-- End of Sign-in Box -->
+						<div style="margin-top:5px;">
+							<button type="submit" class="btn btn-block btn-primary">SUBMIT</button>
+						</div>
+					
+					</form>
 				
+				</div>
 			</div>
 		</div>
 	</div>
+	
 	
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- --------------------------------------------------- Start Of Footer ---------------------------------------------------------------------- -->

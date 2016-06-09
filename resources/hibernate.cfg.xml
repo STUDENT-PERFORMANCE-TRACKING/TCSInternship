@@ -41,7 +41,8 @@
 
 		<mapping class="Model.Student" />
 		<mapping class="Model.Login" />
-		
+		<mapping class="Model.Faculty" />
+		<mapping class="Model.Parent" />
 
 	</session-factory>
 

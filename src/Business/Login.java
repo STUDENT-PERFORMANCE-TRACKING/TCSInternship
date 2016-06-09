@@ -8,63 +8,39 @@ import com.opensymphony.xwork2.ModelDriven;
 public class Login extends ActionSupport implements ModelDriven 
 {
 	
+	private String loginStatus;
+	
 	private Model.Login login = new Model.Login();
-	private String loginstatus;
-	private Model.Student stt=null;
 	
-	public Model.Student getStt() {
-		return stt;
-	}
-
-
-
-	public void setStt(Model.Student stt) {
-		this.stt = stt;
-	}
-
-
-
-	public String studentLogin()
+	
+	public String signIn()
 	{
 		
-		Controller.Login logincontroller = new Controller.Login();
 		
-		List<Model.Student> student=null;
-		student = logincontroller.checkStudentLoginCredential(login);
-		
-			
-		if(student.size()==0)
+		if(new Controller.Login().studentLogin(login)!=null)
 		{
-			setLoginstatus("Wrong emailId or password!");
-			return ERROR;
-			
+			   return SUCCESS;
 		}
+		
+		else if(new Controller.Login().parentLogin(login)!=null)
+		{
+			return SUCCESS;
+		}
+		
+		else if(new Controller.Login().facultyLogin(login)!=null)
+		{
+			return SUCCESS;
+		}
+		
 		else
-		{
-			for(Model.Student st : student)
-			{
-				setStt(st);
-				//getStt().getFirstName();
-				//setLoginstatus(" Good emailId or password!");
-			}
-			
-			return LOGIN;
-			
+		{ 
+			setLoginStatus("Wrong emailId or password!");
+			return ERROR;
 		}
 			
+			
 	}
 	
-	
-	
-	public String execute() 
-	{
-		System.out.println("Method executed!");
-		System.out.println("email-id : "+login.getEmailId());
-		System.out.println("password : "+login.getPassword());
-
-		return SUCCESS;
-		
-	}
 	
 	
 	@Override
@@ -74,14 +50,14 @@ public class Login extends ActionSupport implements ModelDriven
 	}
 
 	
-	public String getLoginstatus() {
-		return loginstatus;
+	
+	public String getLoginStatus() {
+		return loginStatus;
 	}
 
-
-
-	public void setLoginstatus(String loginstatus) {
-		this.loginstatus = loginstatus;
+	public void setLoginStatus(String loginStatus) {
+		this.loginStatus = loginStatus;
 	}
+	
 	
 }

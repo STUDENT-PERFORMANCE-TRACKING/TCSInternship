@@ -11,9 +11,9 @@
 
 	<package name="Login" extends="struts-default" namespace="/" >	
 		
-		<action name="loginAction"	class="Business.Login" method="studentLogin">
+		<action name="loginAction"	class="Business.Login" method="signIn">
 			
-			<result name="login">Welcome.jsp</result>
+			<result name="success">Semester.jsp</result>
 			<result name="error">Login.jsp</result>
 			
 		</action>

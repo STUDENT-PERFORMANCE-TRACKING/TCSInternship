@@ -55,58 +55,42 @@
 					<table class="table table-bordered" >
 						<tr>
 							<th>Name:</th>
-							<td colspan="2">ashish</td>
+							<td colspan="2">
+								<s:property value="result.getStudent().getFirstName()"/>
+								<s:property value="result.getStudent().getLastName()"/></td>
 						</tr>
 						<tr>
 							<th>Fathers Name:</th>
-							<td colspan="2">Bikram</td>
+							<td colspan="2">
+							<s:property value="ParentName"/>
+							</td>
+							
 						</tr>
 						<tr>
 							<th>Roll No.</th>
-							<td colspan="2">130210008</td>
+							<td colspan="2"><s:property value="result.getstudent().getRollNo()"/></td>
 						</tr>
 						<tr >
 							<th>Semester</th>
-							<td colspan="2">6</td>
+							<td colspan="2"><s:property value="result.getSemester()"/></td>
 						</tr>
 						<tr>
 							<th class="text-center">Subject</th>
 							<th class="text-center">Maximum Marks</th>
 							<th class="text-center">Marks</th>
-							<tr>
-								<td>a</td>
-								<td>a</td>
-								<td>a</td>
-							</tr>
-							<tr>
-								<td>a</td>
-								<td>a</td>
-								<td>a</td>
-							</tr>
-							<tr>
-								<td>a</td>
-								<td>a</td>
-								<td>a</td>
-							</tr>
-							<tr>
-								<td>a</td>
-								<td>a</td>
-								<td>a</td>
-							</tr>
-							<tr>
-								<td>a</td>
-								<td>a</td>
-								<td>a</td>
-							</tr>
-							<tr>
-								<td>a</td>
-								<td>a</td>
-								<td>a</td>
-							</tr>
-						</tr>
+		                </tr>
+		
+	   				 	<s:iterator value="studentresult" var="r">
+	     				<tr>
+	     					<td><s:property value="r.getSubjectName()"/> </td>
+							<td><s:property value="r.getObtainedMarks()"/></td>
+							<td><s:property value="r.getMaximumMarks()"/></td>
+		                </tr>     
+		                </s:iterator>
+	   					
 						<tr>
-							<th class="text-center">Total Marks</th>
-							<td colspan="2">a</td>
+							<th class="text-center">Total Marks </th>
+							<td colspan="2"><s:property value="result.getTotalMarks()"/></td>
 						</tr>
 					</table>			
 				</div>			
