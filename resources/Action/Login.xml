@@ -15,8 +15,13 @@
 			
 			<result name="success">Semester.jsp</result>
 			<result name="error">Login.jsp</result>
+			<result name="studentalreadylogin">Semester.jsp</result>
+			<result name="parentalreadylogin">Login.jsp</result>
+			<result name="facultyalreadylogin">Login.jsp</result>
 			
 		</action>
+		
+		
 		
 	</package>
 	

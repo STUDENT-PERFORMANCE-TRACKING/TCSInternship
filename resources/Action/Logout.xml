@@ -9,14 +9,16 @@
 	<constant name="struts.devMode" value="false" />
 	<constant name="struts.custom.i18n.resources" value="resources/Message"></constant>
 
-	<package name="Semester" extends="struts-default" namespace="/" >	
+	<package name="Logout" extends="struts-default" namespace="/" >	
 		
-		<action name="semesterAction"	class="Business.Semester" method="semester">
+		<action name="logoutStudent"	class="Business.Logout" method="logoutStudent">
 			
-			<result name="success">Result.jsp</result>
-			<result name="error">Login.jsp</result>
+			<result name="success">Login.jsp</result>
+			
 			
 		</action>
+		
+		
 		
 	</package>
 	

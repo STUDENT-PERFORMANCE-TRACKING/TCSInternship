@@ -1,8 +1,6 @@
 /Action/
 /Business/
 /Controller/
-/Message.properties
 /Model/
-/net/
-/struts.xml
 /hibernate.cfg.xml
+/struts.xml

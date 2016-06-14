@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%@ taglib prefix="s" uri = "/struts-tags" %>
+    
+   <jsp:include page="StudentLoginCheck.jsp"></jsp:include>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 
@@ -68,7 +70,7 @@
 						</tr>
 						<tr>
 							<th>Roll No.</th>
-							<td colspan="2"><s:property value="result.getstudent().getRollNo()"/></td>
+							<td colspan="2"><s:property value="result.getStudent().getRollno()"/></td>
 						</tr>
 						<tr >
 							<th>Semester</th>
@@ -80,11 +82,11 @@
 							<th class="text-center">Marks</th>
 		                </tr>
 		
-	   				 	<s:iterator value="studentresult" var="r">
+	   				 	<s:iterator value="studentresult" >
 	     				<tr>
-	     					<td><s:property value="r.getSubjectName()"/> </td>
-							<td><s:property value="r.getObtainedMarks()"/></td>
-							<td><s:property value="r.getMaximumMarks()"/></td>
+	     					<td><s:property value="getSubjectName()"/> </td>
+							<td><s:property value="getObtainedMarks()"/></td>
+							<td><s:property value="getMaximumMarks()"/></td>
 		                </tr>     
 		                </s:iterator>
 	   					

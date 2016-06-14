@@ -14,7 +14,8 @@ public class StudentResult extends ActionSupport
 	
 	private ArrayList<Model.StudentResultView> studentresult=new ArrayList<Model.StudentResultView>();
 	private Model.Result result = new Model.Result();
-	public String result(int sem)
+	
+	public Model.Result result(Model.Result res)
 	{   
 		//Student =new Model.Student();
 		//studentresult = new ArrayList<Model.StudentResultView>();
@@ -25,15 +26,9 @@ public class StudentResult extends ActionSupport
 	    //TotalMarks=c.getTotalMarks(studentresult);
 		
 		
-		Model.Student student = new Model.Student();
-	   
-		student.setFirstName("ashish");
-	    student.setLastName("ranjan");
-	    student.setRollno(1);
+
+        result=res;
 	    
-	    result.setSemester(sem);
-	    
-		result.setStudent(student);
 		result.setStudentresult(new Controller.StudentResultView().getStudentResultView(result.getStudent().getRollno(), result.getSemester()));
 		result.setTotalMarks(new Controller.StudentResultView().getTotalMarks(result.getStudentresult()));
 		
@@ -46,7 +41,7 @@ public class StudentResult extends ActionSupport
 		
 		System.out.println(result.getTotalMarks());
 		
-	    return SUCCESS;
+	    return res;
 	    
 	  }
 	
