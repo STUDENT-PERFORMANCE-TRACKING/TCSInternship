@@ -1,6 +1,4 @@
-/Action/
-/Business/
 /Controller/
+/Business/
+/Action/
 /Model/
-/hibernate.cfg.xml
-/struts.xml

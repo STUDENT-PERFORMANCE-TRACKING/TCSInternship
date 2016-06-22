@@ -12,16 +12,56 @@
 	<package name="Login" extends="struts-default" namespace="/" >	
 		
 		<action name="loginAction"	class="Business.Login" method="signIn">
+		
+		<interceptor-ref name="token"></interceptor-ref>
+            <!--
+            OR <interceptor-ref name="tokenSession"></interceptor-ref>
+             -->
+            <interceptor-ref name="defaultStack"></interceptor-ref>
 			
-			<result name="success">Semester.jsp</result>
-			<result name="error">Login.jsp</result>
-			<result name="studentalreadylogin">Semester.jsp</result>
-			<result name="parentalreadylogin">Login.jsp</result>
-			<result name="facultyalreadylogin">Login.jsp</result>
+			<result name="studentlogin">WEB-INF/JSPView/StudentView/Semester.jsp</result>
+			<result name="parentlogin">WEB-INF/JSPView/ParentView/ParentStudentSelection.jsp</result>
+			<result name="facultylogin">WEB-INF/JSPView/StudentView/Semester.jsp</result>
 			
-		</action>
+            <result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>
+            
+			<result name="studentalreadylogin">WEB-INF/JSPView/Student/Semester.jsp</result>
+			<result name="parentalreadylogin">WEB-INF/JSPView/ParentView/ParentStudentSelection.jsp</result>
+			<result name="facultyalreadylogin">WEB-INF/JSPView/FacultyView/Login.jsp</result>
+			
+            <result name="invalid.token" type="redirect">loginresubmit</result>   
+          	<result name="input">WEB-INF/Hidden.jsp</result>
+                    
+	   
+	   </action>
 		
 		
+		
+		<action name="loginresubmit"	class="Business.Login" method="checkLoginResubmit">
+		
+	
+			
+			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>
+			<result name="studentalreadylogin">WEB-INF/JSPView/StudentView/Semester.jsp</result>
+			<result name="parentalreadylogin">WEB-INF/JSPView/ParentView/ParentStudentSelection.jsp</result>
+			<result name="facultyalreadylogin">WEB-INF/JSPView/FacultyView/Login.jsp</result>
+          	<result name="input">WEB-INF/Hidden.jsp</result>
+             
+	    
+	   </action>
+		
+		<action name=""	class="Business.Login" method="checkLoginResubmit">
+		
+	
+			
+			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>
+			<result name="studentalreadylogin">WEB-INF/JSPView/StudentView/Semester.jsp</result>
+			<result name="parentalreadylogin">WEB-INF/JSPView/ParentView/ParentStudentSelection.jsp</result>
+			<result name="facultyalreadylogin">WEB-INF/JSPView/FacultyView/Login.jsp</result>
+	<!--  		<result name="input">WEB-INF/JSPView/FacultyView/Login.jsp</result>
+             
+	   -->
+	   </action>
 		
 	</package>
 	

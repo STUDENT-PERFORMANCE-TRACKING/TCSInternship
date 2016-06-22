@@ -4,17 +4,17 @@
   <%
   if (session.getAttribute("student")!= null )
   {
-    %><jsp:forward page="Semester.jsp" /><%
+    %><jsp:forward page="/JSPView/StudentView/Semester.jsp" /><%
   }
   
   else  if (session.getAttribute("parent")!= null )
   {
-	    %><jsp:forward page="Login.jsp" /><%
+	    %><jsp:forward page="/JSPView/LoginView/Login.jsp" /><%
   }
   
   else  if (session.getAttribute("faculty")!= null )
   {
-	    %><jsp:forward page="Login.jsp" /><%
+	    %><jsp:forward page="/JSPView/LoginView/Login.jsp" /><%
   }
 
   %>

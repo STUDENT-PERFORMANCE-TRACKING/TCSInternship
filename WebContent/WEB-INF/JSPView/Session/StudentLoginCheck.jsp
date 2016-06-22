@@ -4,6 +4,6 @@
   <%
   if (session.getAttribute("student")== null )
   {
-    %><jsp:forward page="Login.jsp" /><%
+    %><jsp:forward page="/JSPView/LoginView/Login.jsp" /><%
   }
 %>

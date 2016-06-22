@@ -84,5 +84,19 @@ public class StudentResultView {
       
 	   return TotalMarks;
    }
+   
+   
+public int getMaximumMarks(ArrayList<Model.StudentResultView> studentresultview)	
+   
+   {  
+	   int MaximumMarks=0;
+	   
+	   for(Model.StudentResultView studentresult:studentresultview)
+	   {
+		   MaximumMarks+=studentresult.getMaximumMarks();
+	   }
+      
+	   return MaximumMarks;
+   }
 	
 }

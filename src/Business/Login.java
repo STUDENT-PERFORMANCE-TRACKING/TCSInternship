@@ -1,5 +1,6 @@
 package Business;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -12,25 +13,31 @@ public class Login extends ActionSupport implements ModelDriven , SessionAware
 {
 	private Map<String, Object> sessionMap;
 	private String loginStatus;
-	
+	private ArrayList<String> StudentNames;
 	
 	private Model.Login login = new Model.Login();
 	
 	
 	public String signIn()
 	{
+		System.out.println("Session="+sessionMap.toString());
+		/*
+		String[] rp={"ankita.innocent24@gmail.com"};
 		
-		if(new Controller.Session().checkStudentSession(sessionMap))
+		new Controller.SendingMail().sendMail(rp, "aaaaaa", "aaaaaa");
+		*/
+		if(new Controller.Session().getCurrentStudentSession(sessionMap)!=null)
 		{
 			return "studentalreadylogin";
 		}
 		
-		else if(new Controller.Session().checkParentSession(sessionMap))
+		else if(new Controller.Session().getCurrentParentSession(sessionMap)!=null)
 		{
+			setStudentNames(new Controller.Login().getStudentNames(new Controller.Session().getCurrentParentSession(sessionMap)));
 			return "parentalreadylogin";
 		}
 		
-		else if(new Controller.Session().checkFacultySession(sessionMap))
+		else if(new Controller.Session().getCurrentFacultySession(sessionMap)!=null)
 		{
 			return "facultyalreadylogin";
 		}
@@ -39,18 +46,21 @@ public class Login extends ActionSupport implements ModelDriven , SessionAware
 		
 			if(new Controller.Login().studentLogin(login)!=null)
 		   {
-			   sessionMap.put("student", new Controller.Login().studentLogin(login));
-			   return SUCCESS;
+			   new Controller.Session().createStudentSession(sessionMap,login);
+			   return "studentlogin";
 		   }
 		
 		   else if(new Controller.Login().parentLogin(login)!=null)
 		   {
-			   return SUCCESS;
+			   new Controller.Session().createParentSession(sessionMap,login);
+			   setStudentNames(new Controller.Login().getStudentNames(new Controller.Session().getCurrentParentSession(sessionMap)));
+			   return "parentlogin";
 		   }
 		
 		   else if(new Controller.Login().facultyLogin(login)!=null)
 		   {
-			   return SUCCESS;
+			   new Controller.Session().createFacultySession(sessionMap,login);
+			   return "facultylogin";
 		   }
 		
 		   else
@@ -63,6 +73,30 @@ public class Login extends ActionSupport implements ModelDriven , SessionAware
 			
 	}
 	
+	
+	public String checkLoginResubmit()
+	{
+		if(new Controller.Session().getCurrentStudentSession(sessionMap)!=null)
+		{
+			return "studentalreadylogin";
+		}
+		
+		else if(new Controller.Session().getCurrentParentSession(sessionMap)!=null)
+		{
+			setStudentNames(new Controller.Login().getStudentNames(new Controller.Session().getCurrentParentSession(sessionMap)));
+			return "parentalreadylogin";
+		}
+		
+		else if(new Controller.Session().getCurrentFacultySession(sessionMap)!=null)
+		{
+			return "facultyalreadylogin";
+		}
+		
+		else
+		{
+			return ERROR;
+		}
+	}
 	
 	
 	@Override
@@ -88,5 +122,14 @@ public class Login extends ActionSupport implements ModelDriven , SessionAware
 		this.sessionMap = sessionMap;		
 	}
 	
-	
+	public ArrayList<String> getStudentNames() {
+		return StudentNames;
+	}
+
+
+	public void setStudentNames(ArrayList<String> studentNames) {
+		StudentNames = studentNames;
+	}
+
+
 }

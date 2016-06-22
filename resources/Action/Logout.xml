@@ -13,7 +13,7 @@
 		
 		<action name="logoutStudent"	class="Business.Logout" method="logoutStudent">
 			
-			<result name="success">Login.jsp</result>
+			<result name="success">WEB-INF/JSPView/LoginView/Login.jsp</result>
 			
 			
 		</action>

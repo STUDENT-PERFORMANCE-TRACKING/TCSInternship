@@ -1,4 +1,4 @@
-package Business;
+package Controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,11 +9,10 @@ import com.opensymphony.xwork2.ModelDriven;
 import Model.StudentResultView;
 
 
-public class StudentResult extends ActionSupport 
+public class StudentResult 
 {
 	
 	private ArrayList<Model.StudentResultView> studentresult=new ArrayList<Model.StudentResultView>();
-	private Model.Result result = new Model.Result();
 	
 	public Model.Result result(Model.Result res)
 	{   
@@ -26,20 +25,22 @@ public class StudentResult extends ActionSupport
 	    //TotalMarks=c.getTotalMarks(studentresult);
 		
 		
-
-        result=res;
 	    
-		result.setStudentresult(new Controller.StudentResultView().getStudentResultView(result.getStudent().getRollno(), result.getSemester()));
-		result.setTotalMarks(new Controller.StudentResultView().getTotalMarks(result.getStudentresult()));
+		res.setStudentresult(new Controller.StudentResultView().getStudentResultView(res.getStudent().getRollno(), res.getSemester()));
+		res.setTotalMarks(new Controller.StudentResultView().getTotalMarks(res.getStudentresult()));
 		
-		studentresult = result.getStudentresult();
+		studentresult = res.getStudentresult();
 		
 		for(StudentResultView StudentResult : studentresult)
 		{
 			System.out.println(StudentResult.getSubjectName()+"--"+StudentResult.getMaximumMarks()+"--"+StudentResult.getObtainedMarks());
 		}
 		
-		System.out.println(result.getTotalMarks());
+		System.out.println(res.getTotalMarks());
+		
+		res.setParentName(new Controller.StudentResultView().getParentName(res.getStudent().getRollno()));
+		
+		res.setMaximumMarks(new Controller.StudentResultView().getMaximumMarks(res.getStudentresult()));
 		
 	    return res;
 	    
@@ -55,14 +56,6 @@ public class StudentResult extends ActionSupport
 	public void setStudentresult(ArrayList<Model.StudentResultView> studentresult) {
 		this.studentresult = studentresult;
 	}
-	public Model.Result getResult() {
-		return result;
-	}
-	public void setResult(Model.Result result) {
-		this.result = result;
-	}
-
-	
 	
 	
 	

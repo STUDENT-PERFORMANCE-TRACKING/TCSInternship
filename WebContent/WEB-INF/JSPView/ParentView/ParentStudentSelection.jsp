@@ -1,9 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%@ taglib prefix="s" uri = "/struts-tags" %>
-    
-   <jsp:include page="StudentLoginCheck.jsp"></jsp:include>
+   
+ <%
+
+   response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0"); 
+   response.addHeader("Pragma", "no-cache"); 
+   response.addDateHeader ("Expires", 0);
+   %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html lang="en">
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
@@ -22,13 +29,8 @@
 		<link type = "text/css"		rel = "stylesheet"		href = "css/bootstrap.min.css">
     	<link type = "text/css"		rel = "stylesheet"		href = "css/bootstrap-theme.css">
     	<link type = "text/css"		rel = "stylesheet"		href = "css/bootstrap-theme.min.css">
-		
-		<script>
-			function myFunction() 
-			{
-    			window.print();
-			}
-		</script>
+    	
+    	
 
 </head>
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
@@ -46,65 +48,69 @@
 <!-- --------------------------------------------------- Start Of Header ---------------------------------------------------------------------- -->
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 	<div class="container-fluid" style="background-color:#400040;color:#fff;height:120px;">
-  		<h1>Student Tracking Portal</h1>
+  		<h1 class="style1">Student Tracking Portal</h1>
 	</div>
-	<br>
-	<div class="container">
-		<div class="panel panel-primary text-center" style="width:100%">
-			<div class="panel-heading">Student Result</div>
-			<div class="panel-body">
-				<div class="table-responsive">
-					<table class="table table-bordered" >
-						<tr>
-							<th>Name:</th>
-							<td colspan="2">
-								<s:property value="result.getStudent().getFirstName()"/>
-								<s:property value="result.getStudent().getLastName()"/></td>
-						</tr>
-						<tr>
-							<th>Fathers Name:</th>
-							<td colspan="2">
-							<s:property value="ParentName"/>
-							</td>
-							
-						</tr>
-						<tr>
-							<th>Roll No.</th>
-							<td colspan="2"><s:property value="result.getStudent().getRollno()"/></td>
-						</tr>
-						<tr >
-							<th>Semester</th>
-							<td colspan="2"><s:property value="result.getSemester()"/></td>
-						</tr>
-						<tr>
-							<th class="text-center">Subject</th>
-							<th class="text-center">Maximum Marks</th>
-							<th class="text-center">Marks</th>
-		                </tr>
-		
-	   				 	<s:iterator value="studentresult" >
-	     				<tr>
-	     					<td><s:property value="getSubjectName()"/> </td>
-							<td><s:property value="getObtainedMarks()"/></td>
-							<td><s:property value="getMaximumMarks()"/></td>
-		                </tr>     
-		                </s:iterator>
-	   					
-						<tr>
-							<th class="text-center">Total Marks </th>
-							<td colspan="2"><s:property value="result.getTotalMarks()"/></td>
-						</tr>
-					</table>			
-				</div>			
-			</div>
-		<div class="panel-footer panel-default">Successfully passed the examination </div>
-		</div>
-		<button type="button" class="btn btn-success btn-md" onClick="myFunction()" style="margin-left:550px; margin-bottom:5px">
-			<Strong>Print</Strong>
-		</button>
-	</div>
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- --------------------------------------------------- Start Of Header ---------------------------------------------------------------------- -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 
-<div class="container-fluid" style="background-color:#400040;color:#fff;height:53px;">
+	<div class="container-fluid">
+		<div class="row">
+			 
+			<div class="col-md-2">
+				Result
+			</div>
+			
+			<div class="col-md-10" style="background-color:#FFFFFF;">
+				<div class="panel-body col-md-10" style="padding:169px">
+					
+					<form action="parentstudentresultAction" method="get">
+					<div style="margin:10px">
+					    <h3><strong>select your ward whose rusult you want to view.</strong></h3>
+					</div>
+						
+						
+		                
+		                <select name="StudentName" class="form-control ">
+		                  <s:iterator value="StudentNames" >
+		                
+						     <option><s:property/></option>
+							
+						  </s:iterator>	
+						</select>
+					
+					<br><br><br>
+						<div style="margin:10px">
+							<h3><strong>please select your semester and press enter to view your result.</strong></h3>
+						</div>
+						
+						<select name="Semester" class="form-control ">
+							<option selected name="1">1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+							<option>6</option>
+							<option>7</option>
+							<option>8</option>
+						</select>
+						
+						<div style="margin-top:5px;">
+							<button type="submit" class="btn btn-block btn-primary">SUBMIT</button>
+						</div>
+					
+					</form>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- --------------------------------------------------- Start Of Footer ---------------------------------------------------------------------- -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
+	<div class="container-fluid" style="background-color:#400040;color:#fff;height:53px;">
 		<p class="text-center" style="padding-top:15px;">&copy;Copyright Protected : Oak Art</p>
 	</div>		
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->

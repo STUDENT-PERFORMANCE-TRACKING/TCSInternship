@@ -1,5 +1,6 @@
 package Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.classic.Session;
@@ -114,6 +115,36 @@ public class Login
 			return Faculty; 
 		}
 		
+		
+	}
+	
+	
+	public ArrayList<String> getStudentNames(Model.Parent parent)
+	{
+		Session session = Database.getSessionFactory().openSession();
+		session.beginTransaction();
+		ArrayList<String> StudentNames=new ArrayList<String>(); 
+		
+		System.out.println(" parent'"+parent.toString());
+		
+		Query query = session.createSQLQuery("select FirstName,LastName  from Student where ParentId= :parentId");
+		query.setParameter("parentId",parent.getParentId());
+
+		List<Object[]> obj= query.list();
+		
+		session.getTransaction().commit();
+		   for(Object[] row : obj)
+		    {
+				
+		    	System.out.println(row[0]+" " +row[1]);
+	           
+		    	String studentname=row[0]+" "+row[1];
+		    	    	
+		    	StudentNames.add(studentname);	    	
+		    			
+		    }
+        
+        return StudentNames;
 		
 	}
 	

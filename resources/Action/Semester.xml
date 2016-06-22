@@ -13,8 +13,8 @@
 		
 		<action name="semesterAction"	class="Business.Semester" method="semester">
 			
-			<result name="success">Result.jsp</result>
-			<result name="error">Login.jsp</result>
+			<result name="success">WEB-INF/JSPView/StudentView/Result.jsp</result>
+			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>
 			
 		</action>
 		
