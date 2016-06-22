@@ -12,8 +12,9 @@ public class Logout extends ActionSupport implements SessionAware {
 
 	public String logoutStudent()
 	{ 
-		if(sessionMap.containsKey("student"))
-			sessionMap.remove("student");
+		new Controller.Session().removeStudentSession(sessionMap);
+		
+		new Controller.Session().removeParentSession(sessionMap);
 			
 		return SUCCESS;
 	}

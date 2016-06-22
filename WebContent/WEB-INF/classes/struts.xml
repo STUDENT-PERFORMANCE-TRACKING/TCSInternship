@@ -12,6 +12,8 @@
 	<include file="Action/StudentResultView.xml"></include>
 
 	<include file="Action/Logout.xml"></include>
+	
+	<include file="Action/parentstudentresult.xml"></include>
 
 	<!--
 	<include file="Action/AdminFunction.xml"></include>

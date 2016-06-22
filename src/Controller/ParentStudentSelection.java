@@ -37,13 +37,13 @@ public class ParentStudentSelection {
 		session.beginTransaction();
 		
 		Model.Student Student = null;
-		String name=StudentName.
+		String name=StudentName.substring(0, StudentName.indexOf(" "));
 		
 		
 		String hql = "FROM Student  WHERE FirstName = :name AND ParentId= :ParentId";
 		
 		Query query = session.createQuery(hql);
-		query.setParameter("name",StudentName);
+		query.setParameter("name",name);
 		query.setParameter("ParentId",ParentId);
 		
 		try

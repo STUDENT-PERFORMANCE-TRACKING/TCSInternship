@@ -21,7 +21,7 @@ public class ParentStudentResult extends ActionSupport implements ModelDriven ,S
 		
 		new Model.Logging().message("Semester", String.valueOf(result.getSemester()));
 		getResult().setParentName(new Controller.Session().getCurrentParentSession(sessionMap).getParentName());
-		getResult().setStudent(new Controller.Session().getCurrentStudentSession(sessionMap));
+		getResult().setStudent(new Controller.ParentStudentSelection().getStudent(result.getStudentName(), new Controller.Session().getCurrentParentSession(sessionMap).getParentId()));
 		result= new Controller.StudentResult().result(result);
 		return SUCCESS;
 		
