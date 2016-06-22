@@ -62,16 +62,16 @@ public class Session {
 	
 	public String removeParentSession(Map<String, Object> sessionMap)
 	{
-		if(sessionMap.containsKey("student"))
-			sessionMap.remove("student");
+		if(sessionMap.containsKey("parent"))
+			sessionMap.remove("parent");
 		
 		return "success";
 	}
 	
 	public String removeFacultySession(Map<String, Object> sessionMap)
 	{
-		if(sessionMap.containsKey("student"))
-			sessionMap.remove("student");
+		if(sessionMap.containsKey("faculty"))
+			sessionMap.remove("faculty");
 		
 		return "success";
 	}
