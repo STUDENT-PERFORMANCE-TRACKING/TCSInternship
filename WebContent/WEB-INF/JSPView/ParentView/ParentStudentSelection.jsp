@@ -30,8 +30,17 @@
     	<link type = "text/css"		rel = "stylesheet"		href = "css/bootstrap-theme.css">
     	<link type = "text/css"		rel = "stylesheet"		href = "css/bootstrap-theme.min.css">
     	
-    	
-
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		
+		<style>
+			.popover-content 
+			{
+      			background-color: coral;
+      			color: #FFFFFF;
+      		}
+		</style>
+		
 </head>
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- --------------------------------------------------- End Head content --------------------------------------------------------------------- -->
@@ -44,46 +53,77 @@
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 <body style="background-color:#CCCCCC">
 
+
+
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- --------------------------------------------------- Start Of Header ---------------------------------------------------------------------- -->
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
-	<div class="container-fluid" style="background-color:#400040;color:#fff;height:120px;">
-  		<h1 class="style1">Student Tracking Portal</h1>
+	
+	<nav class="navbar navbar-full navbar-default" style="margin-bottom:0px;">
+ 		<div class="container-fluid" style="background-color:#400040;color:#fff;">
+    		<div class="navbar-header">
+		  		<a class="navbar-brand" href="#"><h3 class="style1" style="color:#FFFFFF;">Student Tracking Portal<h3></a>
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>
+       			 </button>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right" style="margin-top:60px;" >
+      				<li>
+						<a href="<s:url action="logoutStudent"/>" style="color:#3366FF;">
+						<span class="glyphicon glyphicon-off"></span> Log-out</a>
+					</li>
+      				<li>
+						<a href="#"  data-toggle="popover" data-placement="bottom" data-trigger="focus" 
+						data-content= "For any query mail to : mail@gmail.com" style="color:#3366FF;">
+						<span class="glyphicon glyphicon-envelope"></span> Contact-us</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 	</div>
+	<script>
+		$(document).ready(function(){
+   		$('[data-toggle="popover"]').popover();
+			});
+	</script>
+		
+	
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- --------------------------------------------------- Start Of Header ---------------------------------------------------------------------- -->
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 
-	<div class="container-fluid">
-		<div class="row">
-			 
-			<div class="col-md-2">
-				Result
-			</div>
-			
-			<div class="col-md-10" style="background-color:#FFFFFF;">
-				<div class="panel-body col-md-10" style="padding:169px">
-					
+	<div class="container-fluid" style="background-color:#FFFFFF;">
+		<div style="margin:110px;">
 					<form action="parentstudentresultAction" method="get">
-					<div style="margin:10px">
-					    <h3><strong>select your ward whose rusult you want to view.</strong></h3>
-					</div>
-						
-						
-		                
-		                <select name="StudentName" class="form-control ">
-		                  <s:iterator value="StudentNames" >
-		                
-						     <option><s:property/></option>
-							
-						  </s:iterator>	
-						</select>
 					
-					<br><br><br>
-						<div style="margin:10px">
-							<h3><strong>please select your semester and press enter to view your result.</strong></h3>
+					
+						<div class="panel-body col-md-3">
+						</div>
+						<div class="panel-body col-md-3">
+						<h4><strong>select your ward whose result you want to view : </strong></h4>
+						</div><br>
+						<div class="panel-body col-md-3">
+						<select name="StudentName" class="form-control ">
+		                	<s:iterator value="StudentNames" >
+		                	    <option><s:property/></option>
+							</s:iterator>	
+						</select>
+						</div>
+						<div class="panel-body col-md-3">
 						</div>
 						
+						
+						<br><br><br><br><br>
+						
+						<div class="panel-body col-md-3">
+						</div>
+						<div class="panel-body col-md-3">
+						<h4><strong>please select your semester and press enter to view your result : </strong></h4>
+						</div><br>
+						<div class="panel-body col-md-3">
 						<select name="Semester" class="form-control ">
 							<option selected name="1">1</option>
 							<option>2</option>
@@ -94,8 +134,13 @@
 							<option>7</option>
 							<option>8</option>
 						</select>
+						</div>
+						<div class="panel-body col-md-3">
+						</div>
 						
-						<div style="margin-top:5px;">
+						<br><br><br><br>
+						
+						<div class="col-md-6" style="margin-left:300px; padding-bottom:131px;">
 							<button type="submit" class="btn btn-block btn-primary">SUBMIT</button>
 						</div>
 					
@@ -103,10 +148,6 @@
 				
 				</div>
 			</div>
-		</div>
-	</div>
-	
-	
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- --------------------------------------------------- Start Of Footer ---------------------------------------------------------------------- -->
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
