@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation"	value="false" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.custom.i18n.resources" value="resources/Message"></constant>
+
+	<package name="AdminFunction" extends="struts-default" namespace="/" >	
+		
+		<action name="adminsignupURLAction"	class="Business.AdminAction" method="checkAdminSignupURL">
+			
+			<result name="adminalreadylogin">WEB-INF/JSPView/AdminView/AdminSelect.jsp</result>
+			<result name="adminnotlogin">WEB-INF/JSPView/AdminView/AdminLogin.jsp</result>
+			
+		</action>
+		
+		<action name="adminLoginAction"	class="Business.AdminAction" method="checkAdminLogin">
+			
+			<result name="success">WEB-INF/JSPView/AdminView/AdminSelect.jsp</result>
+			<result name="error">WEB-INF/JSPView/AdminView/AdminLogin.jsp</result>
+			
+		</action>
+		
+		<action name="adminSelectAction"	class="Business.AdminAction" method="adminSelectAction">
+			
+			<result name="studentparentform">WEB-INF/JSPView/AdminView/createStudentParentProfile.jsp</result>
+			<result name="facultyform">WEB-INF/JSPView/AdminView/createFacultyProfile.jsp</result>
+			<result name="error">WEB-INF/JSPView/AdminView/AdminLogin.jsp</result>
+			
+		</action>
+		
+		<action name="addStudentParent"	class="Business.AdminAction" method="addStudentParent">
+			
+			<result name="success">WEB-INF/JSPView/AdminView/ProfileCreationSuccess.jsp</result>
+			<result name="insertionfailed">WEB-INF/JSPView/AdminView/createStudentParentProfile.jsp</result>
+			<result name="error">WEB-INF/JSPView/AdminView/AdminLogin.jsp</result>
+			
+		</action>
+		
+		<action name="addFaculty"	class="Business.AdminAction" method="addFaculty">
+			
+			<result name="success">WEB-INF/JSPView/AdminView/ProfileCreationSuccess.jsp</result>
+			<result name="insertionfailed">WEB-INF/JSPView/AdminView/createFacultyProfile.jsp</result>
+			<result name="error">WEB-INF/JSPView/AdminView/AdminLogin.jsp</result>
+			
+		</action>
+		
+		
+		<action name="addMoreInfoAction"	class="Business.AdminAction" method="addMoreInfo">
+			
+			<result name="success">WEB-INF/JSPView/AdminView/AdminSelect.jsp</result>
+			<result name="error">WEB-INF/JSPView/AdminView/AdminLogin.jsp</result>
+			
+		</action>
+		
+		<action name="LogoutAdmin"	class="Business.AdminAction" method="logoutAdmin">
+			
+			<result name="success">WEB-INF/JSPView/AdminView/AdminLogin.jsp</result>
+			
+		</action>
+		
+	</package>
+	
+	
+</struts>
