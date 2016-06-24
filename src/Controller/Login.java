@@ -9,7 +9,6 @@ import org.hibernate.PropertyAccessException;
 public class Login 
 {
 	
-	
 	public Model.Student studentLogin(Model.Login login)
 	{ 
 		
@@ -138,7 +137,9 @@ public class Login
 				
 		    	System.out.println(row[0]+" " +row[1]);
 	           
-		    	String studentname=row[0]+" "+row[1];
+		    	String studentname=row[0]+" ";
+		    	if(row[1]!=null)
+		    		studentname=studentname+row[1];
 		    	    	
 		    	StudentNames.add(studentname);	    	
 		    			

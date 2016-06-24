@@ -7,7 +7,7 @@
 
 	<include file="Action/Login.xml"></include>
 	
-	<include file="Action/Semester.xml"></include>
+	<include file="Action/StudentResult.xml"></include>
 		
 	<include file="Action/StudentResultView.xml"></include>
 
@@ -15,8 +15,7 @@
 	
 	<include file="Action/parentstudentresult.xml"></include>
 
-	<!--
 	<include file="Action/AdminFunction.xml"></include>
-	-->
+	
 	
 </struts>

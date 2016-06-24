@@ -29,18 +29,9 @@
 		<link type = "text/css"		rel = "stylesheet"		href = "css/bootstrap.min.css">
     	<link type = "text/css"		rel = "stylesheet"		href = "css/bootstrap-theme.css">
     	<link type = "text/css"		rel = "stylesheet"		href = "css/bootstrap-theme.min.css">
-    	  
-    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		
-		<style>
-			.popover-content 
-			{
-      			background-color: coral;
-      			color: #FFFFFF;
-      		}
-		</style>
-		
+    	
+    	
+
 </head>
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- --------------------------------------------------- End Head content --------------------------------------------------------------------- -->
@@ -53,12 +44,9 @@
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 <body style="background-color:#CCCCCC">
 
-
-
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- --------------------------------------------------- Start Of Header ---------------------------------------------------------------------- -->
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
-	
 	<nav class="navbar navbar-full navbar-default" style="margin-bottom:0px;">
  		<div class="container-fluid" style="background-color:#400040;color:#fff;">
     		<div class="navbar-header">
@@ -71,7 +59,7 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right" style="margin-top:60px;" >
       				<li>
-						<a href="<s:url action="logoutStudent"/>" style="color:#3366FF;">
+						<a href="<s:url action="logoutAdmin"/>" style="color:#3366FF;">
 						<span class="glyphicon glyphicon-off"></span> Log-out</a>
 					</li>
       				<li>
@@ -89,82 +77,34 @@
    		$('[data-toggle="popover"]').popover();
 			});
 	</script>
-		
-	
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- --------------------------------------------------- Start Of Header ---------------------------------------------------------------------- -->
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 
-	<div class="container-fluid" style="background-color:#FFFFFF;">
-		<div style="margin:110px;">
-						<div class="panel-body col-md-3">
-						</div>
-						<div class="panel-body col-md-3">
-						<h4><strong>select your ward whose result you want to view : </strong></h4>
-						</div><br>
-						<div class="panel-body col-md-3">
-						<select name="result.StudentName" class="form-control ">
-		                	<s:iterator value="StudentNames" >
-		                	    <option><s:property/></option>
-							</s:iterator>	
-						</select>
-						</div>
-						<div class="panel-body col-md-3">
-						</div>
-		 </div>
-	 </div>	
-						
-						<br><br><br><br><br>
-						
-		<div class="container-fluid" style="background-color:#FFFFFF; padding-bottom:210px; padding-top:100px;">
-		<div >
-			<div class="row">
-				<h2 style="margin-left:150px;"><strong> Either select semester or year and press submit to view result</strong></h2>
-				<div class="col-md-4" style="margin-left:120px; margin-right:50px">
-					<form action="parentstudentresultsemesterAction" method="get">
-						<div >
-							<h3><strong>SEMESTER</strong></h3>
-						</div>
-						
-						<select name="SemesterFirst" class="form-control ">
-							<option selected value="1">1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-							<option>6</option>
-							<option>7</option>
-							<option>8</option>
-						</select>
-						
+	<div class="container-fluid">
+		<div class="row">
+			 
+			<div class="col-md-2">
+				Information Successfully Inserted
+			</div>
+			
+			<div class="col-md-10" style="background-color:#FFFFFF;">
+				<div class="panel-body col-md-10" style="padding:169px">
+					
+					<form action="addMoreInfoAction" method="get">
+
 						<div style="margin-top:5px;">
-							<button type="submit" class="btn btn-block btn-primary">SUBMIT</button>
-						</div>
-					</form>
-				</div>
-				
-				<div class="col-md-4" style="margin-left:80px;">
-					<form action="parentstudentresultyearAction" method="get">
-						<div >
-							<h3><strong>YEAR.</strong></h3>
-						</div>
-						
-						<select name="Year" class="form-control ">
-							<option value="1">1st year</option>
-							<option value="2">2nd year</option>
-							<option value="3">3rd year</option>
-							<option value="4">4th year</option>
-						</select>
-						
-						<div style="margin-top:5px;">
-							<button type="submit" class="btn btn-block btn-primary">SUBMIT</button>
+							<button type="submit" class="btn btn-block btn-primary">Click for adding more information</button>
 						</div>
 					
 					</form>
+				
 				</div>
 			</div>
 		</div>
 	</div>
+	
+	
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- --------------------------------------------------- Start Of Footer ---------------------------------------------------------------------- -->
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->

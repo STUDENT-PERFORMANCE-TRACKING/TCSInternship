@@ -36,9 +36,13 @@ public class ParentStudentSelection {
 		Session session = Database.getSessionFactory().openSession();
 		session.beginTransaction();
 		
+		System.out.println("aaa"+StudentName);
+		String name;
 		Model.Student Student = null;
-		String name=StudentName.substring(0, StudentName.indexOf(" "));
-		
+		if(StudentName.indexOf(" ")!=-1)
+		    name=StudentName.substring(0, StudentName.indexOf(" "));
+		else
+			name=StudentName;
 		
 		String hql = "FROM Student  WHERE FirstName = :name AND ParentId= :ParentId";
 		

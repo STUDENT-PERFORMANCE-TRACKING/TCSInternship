@@ -9,16 +9,16 @@
 	<constant name="struts.devMode" value="false" />
 	<constant name="struts.custom.i18n.resources" value="resources/Message"></constant>
 
-	<package name="parentstudentresult" extends="struts-default" namespace="/" >	
+	<package name="StudentResult" extends="struts-default" namespace="/" >	
 		
-		<action name="parentstudentresultsemesterAction"	class="Business.ParentStudentResult" method="getParentStudentResultBySemester">
+		<action name="semesterAction"	class="Business.StudentResult" method="getSemesterResult">
 			
 			<result name="success">WEB-INF/JSPView/StudentView/Result.jsp</result>
 			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>
 			
 		</action>
 		
-		<action name="parentstudentresultyearAction"	class="Business.ParentStudentResult" method="getParentStudentResultByYear">
+		<action name="yearAction"	class="Business.StudentResult" method="getYearResult">
 			
 			<result name="success">WEB-INF/JSPView/StudentView/Result.jsp</result>
 			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>

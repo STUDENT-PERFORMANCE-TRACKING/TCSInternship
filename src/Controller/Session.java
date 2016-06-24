@@ -33,6 +33,14 @@ public class Session {
 			return (Model.Faculty)sessionMap.get("faculty");
 	}
 	
+	public Model.Login getCurrentAdminSession(Map<String, Object> sessionMap)
+	{
+		if(sessionMap.get("admin")==null)
+			return null;
+		else
+			return (Model.Login)sessionMap.get("admin");
+	}
+	
 	
 	public Map<String, Object> createStudentSession(Map<String, Object> sessionMap,Model.Login login)
 	{
@@ -49,6 +57,12 @@ public class Session {
 	public Map<String, Object> createFacultySession(Map<String, Object> sessionMap,Model.Login login)
 	{
 		sessionMap.put("faculty", new Controller.Login().facultyLogin(login));
+		return sessionMap;
+	}
+	
+	public Map<String, Object> createAdminSession(Map<String, Object> sessionMap,Model.Login login)
+	{
+		sessionMap.put("admin", login);
 		return sessionMap;
 	}
 	
@@ -72,6 +86,14 @@ public class Session {
 	{
 		if(sessionMap.containsKey("faculty"))
 			sessionMap.remove("faculty");
+		
+		return "success";
+	}
+	
+	public String removeAdminSession(Map<String, Object> sessionMap)
+	{
+		if(sessionMap.containsKey("admin"))
+			sessionMap.remove("admin");
 		
 		return "success";
 	}

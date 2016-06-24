@@ -7,38 +7,35 @@ import org.apache.struts2.interceptor.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class ParentStudentResult extends ActionSupport implements ModelDriven ,SessionAware
+public class StudentResult extends ActionSupport implements ModelDriven ,SessionAware
 {
 	private Map<String, Object> sessionMap;
 	private Model.Result result = new Model.Result();
 	
 	
 
-	public String getParentStudentResultBySemester()
+	public String getSemesterResult()
 	{
-		if(new Controller.Session().getCurrentParentSession(sessionMap)==null)
+		if(new Controller.Session().getCurrentStudentSession(sessionMap)==null)
 			return ERROR ;
-		System.out.println("st name from jsp ="+result.getStudentName());
+		
 		new Model.Logging().message("Semester", String.valueOf(result.getSemesterFirst()));
-		getResult().setParentName(new Controller.Session().getCurrentParentSession(sessionMap).getParentName());
-		getResult().setStudent(new Controller.ParentStudentSelection().getStudent(result.getStudentName(), new Controller.Session().getCurrentParentSession(sessionMap).getParentId()));
+		getResult().setStudent(new Controller.Session().getCurrentStudentSession(sessionMap));
 		result= new Controller.StudentResult().result(result);
+		result.setResultType("Semester");
 		return SUCCESS;
 		
 	}
 	
-	public String getParentStudentResultByYear()
+	public String getYearResult()
 	{
-		if(new Controller.Session().getCurrentParentSession(sessionMap)==null)
+		if(new Controller.Session().getCurrentStudentSession(sessionMap)==null)
 			return ERROR ;
-		
-		result.setResultType("Year");
 		new Controller.StudentResult().setSemesterForYear(result);
-		new Model.Logging().message("Semester", String.valueOf(result.getSemesterFirst()));
-		getResult().setParentName(new Controller.Session().getCurrentParentSession(sessionMap).getParentName());
-		getResult().setStudent(new Controller.ParentStudentSelection().getStudent(result.getStudentName(), new Controller.Session().getCurrentParentSession(sessionMap).getParentId()));
+		getResult().setStudent(new Controller.Session().getCurrentStudentSession(sessionMap));
 		result= new Controller.StudentResult().result(result);
 		result.getStudentresult().addAll(new Controller.StudentResultView().getStudentResultView(result.getStudent().getRollNo(), result.getSemesterSecond()));
+		result.setResultType("Year");
 		result.setSemesterFirst(result.getYear());
 		return SUCCESS;
 		

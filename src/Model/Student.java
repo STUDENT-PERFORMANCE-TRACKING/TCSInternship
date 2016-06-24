@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Table(name="student")
 public class Student {
 
-	private int Rollno;
+	private int RollNo;
 	private int BranchId;
 	private int ParentId;
 	private String FirstName;
@@ -20,13 +20,12 @@ public class Student {
 		
 	
 	@Id
-	@GeneratedValue
 	@Column(name="RollNo")
-	public int getRollno() {
-		return Rollno;
+	public int getRollNo() {
+		return RollNo;
 	}
-	public void setRollno(int rollno) {
-		Rollno = rollno;
+	public void setRollNo(int rollNo) {
+		RollNo = rollNo;
 	}
 	
 	@Column(name="BranchId")

@@ -11,7 +11,14 @@
 
 	<package name="parentstudentresult" extends="struts-default" namespace="/" >	
 		
-		<action name="parentstudentresultAction"	class="Business.ParentStudentResult" method="getParentStudentResult">
+		<action name="parentstudentresultsemesterAction"	class="Business.ParentStudentResult" method="getParentStudentResultBySemester">
+			
+			<result name="success">WEB-INF/JSPView/StudentView/Result.jsp</result>
+			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>
+			
+		</action>
+		
+		<action name="parentstudentresultyearAction"	class="Business.ParentStudentResult" method="getParentStudentResultByYear">
 			
 			<result name="success">WEB-INF/JSPView/StudentView/Result.jsp</result>
 			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>

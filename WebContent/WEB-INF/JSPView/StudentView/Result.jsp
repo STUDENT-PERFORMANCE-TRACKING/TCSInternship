@@ -125,11 +125,11 @@
 						</tr>
 						<tr>
 							<th>Roll No.</th>
-							<td colspan="2"><s:property value="result.getStudent().getRollno()"/></td>
+							<td colspan="2"><s:property value="result.getStudent().getRollNo()"/></td>
 						</tr>
 						<tr >
-							<th>Semester</th>
-							<td colspan="2"><s:property value="result.getSemester()"/></td>
+							<th><s:property value="result.getResultType()"/></th>
+							<td colspan="2"><s:property value="result.getSemesterFirst()"/></td>
 						</tr>
 						<tr>
 							<th class="text-center">Subject</th>

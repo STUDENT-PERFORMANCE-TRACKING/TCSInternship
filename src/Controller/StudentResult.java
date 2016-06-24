@@ -25,9 +25,10 @@ public class StudentResult
 	    //TotalMarks=c.getTotalMarks(studentresult);
 		
 		
-	    
-		res.setStudentresult(new Controller.StudentResultView().getStudentResultView(res.getStudent().getRollno(), res.getSemester()));
+	    //res.getStudentresult().addAll(res.getStudentresult());
+		res.setStudentresult(new Controller.StudentResultView().getStudentResultView(res.getStudent().getRollNo(), res.getSemesterFirst()));
 		res.setTotalMarks(new Controller.StudentResultView().getTotalMarks(res.getStudentresult()));
+		
 		
 		studentresult = res.getStudentresult();
 		
@@ -38,13 +39,40 @@ public class StudentResult
 		
 		System.out.println(res.getTotalMarks());
 		
-		res.setParentName(new Controller.StudentResultView().getParentName(res.getStudent().getRollno()));
+		res.setParentName(new Controller.StudentResultView().getParentName(res.getStudent().getRollNo()));
 		
 		res.setMaximumMarks(new Controller.StudentResultView().getMaximumMarks(res.getStudentresult()));
 		
 	    return res;
 	    
 	  }
+	
+	public void setSemesterForYear(Model.Result result)
+	{
+		if(result.getYear()==1)
+		{ 
+			result.setSemesterFirst(1);
+			result.setSemesterSecond(2);
+		}
+		
+		else if(result.getYear()==2)
+		{ 
+			result.setSemesterFirst(3);
+			result.setSemesterSecond(4);
+		}
+		
+		else if(result.getYear()==3)
+		{ 
+			result.setSemesterFirst(5);
+			result.setSemesterSecond(6);
+		}
+		
+		else 
+		{ 
+			result.setSemesterFirst(7);
+			result.setSemesterSecond(8);
+		}
+	}
 	
 	
 	

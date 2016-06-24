@@ -18,7 +18,9 @@ public class StudentResultView {
 		 
 		ArrayList<Model.StudentResultView> studentresultview =new ArrayList<Model.StudentResultView>();
 		
-		Query query = session.createSQLQuery("select  s.Marks , a.SubjectName ,a.MaximumMarks from StudentResult s, Subject a where a.SubjectId=s.SubjectId and s.RollNo=:rollno and a.Semester= :semester");
+		Query query = session.createSQLQuery("select  s.Marks , a.SubjectName ,a.MaximumMarks from StudentResult s, Subject a "
+				+ "where a.SubjectId=s.SubjectId "
+				+ "and s.RollNo=:rollno and a.Semester= :semester and s.Visible=1 ");
 		query.setParameter("rollno",rollno);
 		query.setParameter("semester",semester);
 	    

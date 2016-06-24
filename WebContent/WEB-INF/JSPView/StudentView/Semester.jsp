@@ -110,8 +110,8 @@
 							<h3><strong>SEMESTER</strong></h3>
 						</div>
 						
-						<select name="semester" class="form-control ">
-							<option selected name="1">1</option>
+						<select name="SemesterFirst" class="form-control ">
+							<option selected value="1">1</option>
 							<option>2</option>
 							<option>3</option>
 							<option>4</option>
@@ -128,16 +128,16 @@
 				</div>
 				
 				<div class="col-md-4" style="margin-left:80px;">
-					<form action="semesterAction" method="get">
+					<form action="yearAction" method="get">
 						<div >
 							<h3><strong>YEAR.</strong></h3>
 						</div>
 						
-						<select name="semester" class="form-control ">
-							<option>1st year</option>
-							<option>2nd year</option>
-							<option>3rd year</option>
-							<option>4th year</option>
+						<select name="Year" class="form-control ">
+							<option value="1">1st year</option>
+							<option value="2">2nd year</option>
+							<option value="3">3rd year</option>
+							<option value="4">4th year</option>
 						</select>
 						
 						<div style="margin-top:5px;">

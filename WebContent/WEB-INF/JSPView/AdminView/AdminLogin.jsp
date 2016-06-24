@@ -2,12 +2,7 @@
     pageEncoding="ISO-8859-1"%>
      <%@ taglib prefix="s" uri = "/struts-tags" %>
    
- <%
 
-   response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0"); 
-   response.addHeader("Pragma", "no-cache"); 
-   response.addDateHeader ("Expires", 0);
-   %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -29,18 +24,9 @@
 		<link type = "text/css"		rel = "stylesheet"		href = "css/bootstrap.min.css">
     	<link type = "text/css"		rel = "stylesheet"		href = "css/bootstrap-theme.css">
     	<link type = "text/css"		rel = "stylesheet"		href = "css/bootstrap-theme.min.css">
-    	  
-    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-		
-		<style>
-			.popover-content 
-			{
-      			background-color: coral;
-      			color: #FFFFFF;
-      		}
-		</style>
-		
+    	
+    	
+
 </head>
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- --------------------------------------------------- End Head content --------------------------------------------------------------------- -->
@@ -51,16 +37,15 @@
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- --------------------------------------------------- Body content ------------------------------------------------------------------------- -->
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
-<body style="background-color:#CCCCCC">
+<body style="background-color:#CCCCCC" onload="window.history.forward(1)">
 
 
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- --------------------------------------------------- Start Of Header ---------------------------------------------------------------------- -->
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
-	
 	<nav class="navbar navbar-full navbar-default" style="margin-bottom:0px;">
- 		<div class="container-fluid" style="background-color:#400040;color:#fff;">
+ 		<div class="container-fluid" style="background-color:#400040;">
     		<div class="navbar-header">
 		  		<a class="navbar-brand" href="#"><h3 class="style1" style="color:#FFFFFF;">Student Tracking Portal<h3></a>
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -69,14 +54,10 @@
        			 </button>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav navbar-right" style="margin-top:60px;" >
+				<ul class="nav navbar-nav navbar-right" style="margin-top:60px;">
       				<li>
-						<a href="<s:url action="logoutStudent"/>" style="color:#3366FF;">
-						<span class="glyphicon glyphicon-off"></span> Log-out</a>
-					</li>
-      				<li>
-						<a href="#"  data-toggle="popover" data-placement="bottom" data-trigger="focus" 
-						data-content= "For any query mail to : mail@gmail.com" style="color:#3366FF;">
+						<a href="#" style="color:#3366FF;" data-toggle="popover" data-placement="bottom" data-trigger="focus" 
+						data-content= "For any query mail to : mail@gmail.com">
 						<span class="glyphicon glyphicon-envelope"></span> Contact-us</a>
 					</li>
 				</ul>
@@ -90,81 +71,55 @@
 			});
 	</script>
 		
-	
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- --------------------------------------------------- Start Of Header ---------------------------------------------------------------------- -->
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 
-	<div class="container-fluid" style="background-color:#FFFFFF;">
-		<div style="margin:110px;">
-						<div class="panel-body col-md-3">
-						</div>
-						<div class="panel-body col-md-3">
-						<h4><strong>select your ward whose result you want to view : </strong></h4>
-						</div><br>
-						<div class="panel-body col-md-3">
-						<select name="result.StudentName" class="form-control ">
-		                	<s:iterator value="StudentNames" >
-		                	    <option><s:property/></option>
-							</s:iterator>	
-						</select>
-						</div>
-						<div class="panel-body col-md-3">
-						</div>
-		 </div>
-	 </div>	
-						
-						<br><br><br><br><br>
-						
-		<div class="container-fluid" style="background-color:#FFFFFF; padding-bottom:210px; padding-top:100px;">
-		<div >
-			<div class="row">
-				<h2 style="margin-left:150px;"><strong> Either select semester or year and press submit to view result</strong></h2>
-				<div class="col-md-4" style="margin-left:120px; margin-right:50px">
-					<form action="parentstudentresultsemesterAction" method="get">
-						<div >
-							<h3><strong>SEMESTER</strong></h3>
+	<div class="container-fluid">
+		<div class="row">
+			 
+			<div class="col-md-2"></div>
+			
+			
+			<div class="col-md-10" style="background-color:#FFFFFF;">
+			
+				<!-- Start Of Sign-in Box -->
+				<div class = "modal-dialog jumbotron" style="box-shadow:3px 3px 3px  #888888;border-radius:5px" >
+		 			
+					<div calss = "modal-content"> 
+						<div class = "modal-header" style="text-shadow:1px 1px 5px #888888;padding-top:0px;" >
+							<h1 class = "text-center" style="padding:0px;">Sign-In</h1>
 						</div>
 						
-						<select name="SemesterFirst" class="form-control ">
-							<option selected value="1">1</option>
-							<option>2</option>
-							<option>3</option>
-							<option>4</option>
-							<option>5</option>
-							<option>6</option>
-							<option>7</option>
-							<option>8</option>
-						</select>
-						
-						<div style="margin-top:5px;">
-							<button type="submit" class="btn btn-block btn-primary">SUBMIT</button>
+						<div class = "modal-body" >
+                			<form name="LoginForm" action="adminLoginAction" method="post">
+							
+								<p><font size="3" color="red"><s:property value="loginstatus" /></font></p>
+							
+								<div class = "from-group" >
+                    				<input name="EmailId" type="email" class="form-control input-lg" placeholder="User Name"  required/><br>
+                    			</div>
+								
+               					<div class = "from-group">
+                    				<input name="Password" type="password" class="form-control input-lg" placeholder="Password" required /><br>
+                    			</div>
+								
+								<div class = "form-group">
+									<input type = "submit" value = "Login" class = "btn btn-block btn-lg btn-primary">
+								</div>  
+								
+							   <s:token />	
+							</form>
 						</div>
-					</form>
+						
+					</div>
 				</div>
+				<!-- End of Sign-in Box -->
 				
-				<div class="col-md-4" style="margin-left:80px;">
-					<form action="parentstudentresultyearAction" method="get">
-						<div >
-							<h3><strong>YEAR.</strong></h3>
-						</div>
-						
-						<select name="Year" class="form-control ">
-							<option value="1">1st year</option>
-							<option value="2">2nd year</option>
-							<option value="3">3rd year</option>
-							<option value="4">4th year</option>
-						</select>
-						
-						<div style="margin-top:5px;">
-							<button type="submit" class="btn btn-block btn-primary">SUBMIT</button>
-						</div>
-					
-					</form>
-				</div>
 			</div>
 		</div>
 	</div>
+	
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- --------------------------------------------------- Start Of Footer ---------------------------------------------------------------------- -->
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->

@@ -8,10 +8,13 @@ public class Result
 	private Model.Student student;
 	private ArrayList<Model.StudentResultView> studentresult;
 	private int TotalMarks;
-	private int Semester;
+	private int SemesterFirst;
+	private int SemesterSecond;
 	private int MaximumMarks;
 	private String ParentName;
 	private String StudentName;
+	private int Year;
+	private String ResultType;
 	
 	public Model.Student getStudent() {
 		return student;
@@ -31,12 +34,6 @@ public class Result
 	public void setTotalMarks(int totalMarks) {
 		TotalMarks = totalMarks;
 	}
-	public int getSemester() {
-		return Semester;
-	}
-	public void setSemester(int semester) {
-		Semester = semester;
-	}
 	public int getMaximumMarks() {
 		return MaximumMarks;
 	}
@@ -54,6 +51,30 @@ public class Result
 	}
 	public void setStudentName(String studentName) {
 		StudentName = studentName;
+	}
+	public int getYear() {
+		return Year;
+	}
+	public int getSemesterFirst() {
+		return SemesterFirst;
+	}
+	public void setSemesterFirst(int semesterFirst) {
+		SemesterFirst = semesterFirst;
+	}
+	public int getSemesterSecond() {
+		return SemesterSecond;
+	}
+	public void setSemesterSecond(int semesterSecond) {
+		SemesterSecond = semesterSecond;
+	}
+	public void setYear(int year) {
+		Year = year;
+	}
+	public String getResultType() {
+		return ResultType;
+	}
+	public void setResultType(String resultType) {
+		ResultType = resultType;
 	}
 	
 	

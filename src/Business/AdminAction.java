@@ -1,36 +1,107 @@
 package Business;
 
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class AdminAction extends ActionSupport implements ModelDriven{
+public class AdminAction extends ActionSupport implements ModelDriven, SessionAware{
 	
 	private Model.Login login = new Model.Login();
-	private Model.Student student;
-	private Model.Faculty faculty;
-	private Model.Parent parent;
+	private Model.AdminStudentParentForm sp;
+	
+	private Map<String, Object> sessionMap;
 
+    public String checkAdminSignupURL()
+    {
+    	if(new Controller.Session().getCurrentAdminSession(sessionMap)!= null)
+    		return "adminalreadylogin";
+    	else
+    		return "adminnotlogin";
+    }
 	
 	public String checkAdminLogin()
 	{
 		if(login.getEmailId().equals("admin@admin.com")  && login.getPassword().equals("password"))
 		{
+			new Controller.Session().createAdminSession(sessionMap, login);
 			return SUCCESS;
 		}
 		
 		else 
+		{
 			return ERROR;
+		}
+			
 	}
 	
 	
-	public String addStudent()
+	public String adminSelectAction()
 	{
-	    Controller.AdminAction  a=new Controller.AdminAction();
-	    System.out.println(student.getEmailId()+"!!!!!!!"+student.getPassword()+"@@@@@@@@@"+student.getBranchId());
-	    a.addStudent(student);
-	    return SUCCESS;
+	   if(new Controller.Session().getCurrentAdminSession(sessionMap)== null)
+		   return ERROR;
+	   
+	   if(sp.getAdminSelect().equals("Student"))
+		   return "studentparentform";
+	   
+	   else
+		   return "facultyform";
+		   
 	}
 	
+	public String addStudentParent()
+	{
+		 if(new Controller.Session().getCurrentAdminSession(sessionMap)== null)
+			   return ERROR;
+		 
+		System.out.println("admin stpaform "+sp.getStudent().getBranchId());
+		
+		if(new Controller.AdminAction().addStudentParent(sp).equals("inserted"))
+		{
+			sp.setInsertstatus("Record Successfully Inserted");
+			return SUCCESS;
+		}
+		else
+		  {
+			sp.setInsertstatus("Record Not Inseted");
+			return "insertionfailed";
+		  }
+	}
+	
+	
+	public String addFaculty()
+	{
+		 if(new Controller.Session().getCurrentAdminSession(sessionMap)== null)
+			   return ERROR;
+		 
+		
+		if(new Controller.AdminAction().addFaculty(sp).equals("inserted"))
+		{
+			sp.setInsertstatus("Record Successfully Inserted");
+			return SUCCESS;
+		}
+		else
+		  {
+			sp.setInsertstatus("Record Not Inseted");
+			return "insertionfailed";
+		  }
+	}
+	
+	public String addMoreInfo()
+	{
+		if(new Controller.Session().getCurrentAdminSession(sessionMap)== null)
+			return ERROR;
+		else
+			return SUCCESS;
+	}
+	
+	
+	public String logoutAdmin()
+	{ 
+		return new Controller.Session().removeAdminSession(sessionMap);
+	}
 	
 	@Override
 	public Object getModel() 
@@ -38,36 +109,24 @@ public class AdminAction extends ActionSupport implements ModelDriven{
 		return login;
 	}
 
-
-	public Model.Student getStudent() {
-		return student;
+	
+	public Model.AdminStudentParentForm getSp() {
+		return sp;
 	}
 
 
-	public void setStudent(Model.Student student) {
-		this.student = student;
+	public void setSp(Model.AdminStudentParentForm sp) {
+		this.sp = sp;
 	}
 
 
-	public Model.Faculty getFaculty() {
-		return faculty;
+	@Override
+	public void setSession(Map<String, Object> sessionMap) {
+		this.sessionMap=sessionMap;
+		
 	}
 
 
-	public void setFaculty(Model.Faculty faculty) {
-		this.faculty = faculty;
-	}
-
-
-	public Model.Parent getParent() {
-		return parent;
-	}
-
-
-	public void setParent(Model.Parent parent) {
-		this.parent = parent;
-	}
-
-
+	
 
 }
