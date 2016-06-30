@@ -14,7 +14,7 @@ public class ParentStudentSelection {
 		session.beginTransaction();
 		ArrayList<String> StudentName=new ArrayList<String>(); 
 		
-		Query query = session.createSQLQuery("select FirstName,LastName  from Student where ParentId= :parentId");
+		Query query = session.createSQLQuery("select FirstName,LastName  from student where ParentId= :parentId");
 		query.setParameter("parentId",parent.getParentId());
 
 		StudentName=(ArrayList<String>) query.list();

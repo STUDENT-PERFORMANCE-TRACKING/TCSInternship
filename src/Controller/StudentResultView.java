@@ -18,7 +18,7 @@ public class StudentResultView {
 		 
 		ArrayList<Model.StudentResultView> studentresultview =new ArrayList<Model.StudentResultView>();
 		
-		Query query = session.createSQLQuery("select  s.Marks , a.SubjectName ,a.MaximumMarks from StudentResult s, Subject a "
+		Query query = session.createSQLQuery("select  s.Marks , a.SubjectName ,a.MaximumMarks from studentresult s, subject a "
 				+ "where a.SubjectId=s.SubjectId "
 				+ "and s.RollNo=:rollno and a.Semester= :semester and s.Visible=1 ");
 		query.setParameter("rollno",rollno);
@@ -58,7 +58,7 @@ public class StudentResultView {
 		Session session = Database.getSessionFactory().openSession();
 		session.beginTransaction();
 		 
-		Query query = session.createSQLQuery("select  ParentName from Parents where ParentId= (select ParentId from student "
+		Query query = session.createSQLQuery("select  ParentName from parents where ParentId= (select ParentId from student "
 				+ " where RollNo= :rollno)");
 		query.setParameter("rollno",RollNo);
 		Object row = query.uniqueResult();

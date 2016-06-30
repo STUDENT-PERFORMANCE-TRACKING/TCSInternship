@@ -12,10 +12,11 @@
 			com.mysql.jdbc.Driver
 		</property>
 		<property name="connection.url">
-			jdbc:mysql://localhost:3306/STUDENT_PERFORMANCE_TRACKING
+			jdbc:mysql://127.2.46.130:3306/STUDENT_PERFORMANCE_TRACKING
 		</property>
-		<property name="connection.username">root</property>
-		<property name="connection.password">shiva</property>
+		<property name="connection.username">adminm5acg2c</property>
+		<property name="connection.password">YhRCtDZTcTCv</property>
+		
 
 		<!-- JDBC connection pool (use the built-in) -->
 		<property name="connection.pool_size">1</property>

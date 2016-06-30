@@ -126,7 +126,7 @@ public class Login
 		
 		System.out.println(" parent'"+parent.toString());
 		
-		Query query = session.createSQLQuery("select FirstName,LastName  from Student where ParentId= :parentId");
+		Query query = session.createSQLQuery("select FirstName,LastName  from student where ParentId= :parentId");
 		query.setParameter("parentId",parent.getParentId());
 
 		List<Object[]> obj= query.list();

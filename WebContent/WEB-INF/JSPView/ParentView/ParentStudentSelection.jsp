@@ -96,34 +96,32 @@
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 
 	<div class="container-fluid" style="background-color:#FFFFFF;">
-		<div style="margin:110px;">
+		<div style="margin-top:40px;">
 						<div class="panel-body col-md-3">
 						</div>
 						<div class="panel-body col-md-3">
-						<h4><strong>select your ward whose result you want to view : </strong></h4>
+						<h3><strong>select your ward whose result you want to view : </strong></h3>
 						</div><br>
 						<div class="panel-body col-md-3">
 						<select name="result.StudentName" class="form-control ">
+						
 		                	<s:iterator value="StudentNames" >
 		                	    <option><s:property/></option>
 							</s:iterator>	
 						</select>
 						</div>
-						<div class="panel-body col-md-3">
-						</div>
+						
 		 </div>
 	 </div>	
-						
-						<br><br><br><br><br>
-						
-		<div class="container-fluid" style="background-color:#FFFFFF; padding-bottom:210px; padding-top:100px;">
+										
+		<div class="container-fluid" style="background-color:#FFFFFF; padding-bottom:135px; padding-top:40px;">
 		<div >
 			<div class="row">
 				<h2 style="margin-left:150px;"><strong> Either select semester or year and press submit to view result</strong></h2>
 				<div class="col-md-4" style="margin-left:120px; margin-right:50px">
 					<form action="parentstudentresultsemesterAction" method="get">
 						<div >
-							<h3><strong>SEMESTER</strong></h3>
+							<h4><strong>SEMESTER</strong></h4>
 						</div>
 						
 						<select name="SemesterFirst" class="form-control ">
@@ -146,7 +144,7 @@
 				<div class="col-md-4" style="margin-left:80px;">
 					<form action="parentstudentresultyearAction" method="get">
 						<div >
-							<h3><strong>YEAR.</strong></h3>
+							<h4><strong>YEAR.</strong></h4>
 						</div>
 						
 						<select name="Year" class="form-control ">
