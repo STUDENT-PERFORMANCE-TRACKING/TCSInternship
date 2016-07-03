@@ -11,11 +11,23 @@
 		<property name="connection.driver_class">
 			com.mysql.jdbc.Driver
 		</property>
+		
+		<!--     for Openshift
+		
 		<property name="connection.url">
 			jdbc:mysql://127.2.46.130:3306/STUDENT_PERFORMANCE_TRACKING
 		</property>
 		<property name="connection.username">adminm5acg2c</property>
 		<property name="connection.password">YhRCtDZTcTCv</property>
+		
+		
+		 -->
+		 
+		 <property name="connection.url">
+			jdbc:mysql://localhost:3306/STUDENT_PERFORMANCE_TRACKING
+		</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">shiva</property>
 		
 
 		<!-- JDBC connection pool (use the built-in) -->

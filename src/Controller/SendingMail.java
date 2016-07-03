@@ -6,8 +6,8 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
-import com.sendgrid.SendGrid;
-import com.sendgrid.SendGridException;
+//import com.sendgrid.SendGrid;
+//import com.sendgrid.SendGridException;
 
 
 
@@ -18,7 +18,7 @@ public class SendingMail {
 	
 	
 
-	
+/*	
 	
     public  String sendMail(String[] recipient,  String message, String subject)
     
@@ -64,6 +64,6 @@ int i = 0;
         
 
       }
-    
+    */
     
 }

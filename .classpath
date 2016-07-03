@@ -10,6 +10,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/SHIV/Desktop/New folder/StrutsHibernate/WebContent/WEB-INF/lib/sendgrid-java-2.2.2.jar"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>

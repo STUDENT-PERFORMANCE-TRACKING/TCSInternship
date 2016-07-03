@@ -17,5 +17,7 @@
 
 	<include file="Action/AdminFunction.xml"></include>
 	
+	<include file="Action/sf1.xml"></include>
+
 	
 </struts>

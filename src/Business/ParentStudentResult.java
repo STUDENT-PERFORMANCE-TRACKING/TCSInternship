@@ -32,6 +32,8 @@ public class ParentStudentResult extends ActionSupport implements ModelDriven ,S
 		if(new Controller.Session().getCurrentParentSession(sessionMap)==null)
 			return ERROR ;
 		
+		
+		System.out.println("st name from jsp ="+result.getStudentName());
 		result.setResultType("Year");
 		new Controller.StudentResult().setSemesterForYear(result);
 		new Model.Logging().message("Semester", String.valueOf(result.getSemesterFirst()));

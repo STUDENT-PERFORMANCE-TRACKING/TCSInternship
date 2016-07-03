@@ -41,6 +41,20 @@
       		}
 		</style>
 		
+		<script type="text/javascript">
+		
+		function setStudentNameSemester()
+		{
+			document.getElementById("name1").value = document.getElementById("name").value;
+		}
+		
+		function setStudentNameYear()
+		{
+			document.getElementById("name2").value = document.getElementById("name").value;
+		}
+		
+		</script>
+		
 </head>
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
 <!-- --------------------------------------------------- End Head content --------------------------------------------------------------------- -->
@@ -71,7 +85,7 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right" style="margin-top:60px;" >
       				<li>
-						<a href="<s:url action="logoutStudent"/>" style="color:#3366FF;">
+						<a href="<s:url action="logout"/>" style="color:#3366FF;">
 						<span class="glyphicon glyphicon-off"></span> Log-out</a>
 					</li>
       				<li>
@@ -103,7 +117,7 @@
 						<h3><strong>select your ward whose result you want to view : </strong></h3>
 						</div><br>
 						<div class="panel-body col-md-3">
-						<select name="result.StudentName" class="form-control ">
+						<select name="studentname" class="form-control "  id="name">
 						
 		                	<s:iterator value="StudentNames" >
 		                	    <option><s:property/></option>
@@ -119,11 +133,12 @@
 			<div class="row">
 				<h2 style="margin-left:150px;"><strong> Either select semester or year and press submit to view result</strong></h2>
 				<div class="col-md-4" style="margin-left:120px; margin-right:50px">
-					<form action="parentstudentresultsemesterAction" method="get">
+					<form action="parentstudentresultsemesterAction" method="get" onsubmit=setStudentNameSemester()>
 						<div >
 							<h4><strong>SEMESTER</strong></h4>
 						</div>
 						
+						<input type="hidden" id="name1" value=""  name="StudentName"/>
 						<select name="SemesterFirst" class="form-control ">
 							<option selected value="1">1</option>
 							<option>2</option>
@@ -142,11 +157,12 @@
 				</div>
 				
 				<div class="col-md-4" style="margin-left:80px;">
-					<form action="parentstudentresultyearAction" method="get">
+					<form action="parentstudentresultyearAction" method="get"  onsubmit=setStudentNameYear()>
 						<div >
 							<h4><strong>YEAR.</strong></h4>
 						</div>
 						
+						<input type="hidden" id="name2" value=""  name="StudentName"/>
 						<select name="Year" class="form-control ">
 							<option value="1">1st year</option>
 							<option value="2">2nd year</option>

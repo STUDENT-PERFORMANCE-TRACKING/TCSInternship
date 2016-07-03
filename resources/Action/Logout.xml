@@ -11,7 +11,15 @@
 
 	<package name="Logout" extends="struts-default" namespace="/" >	
 		
-		<action name="logoutStudent"	class="Business.Logout" method="logoutStudent">
+		<action name="logout"	class="Business.Logout" method="logout">
+			
+			<result name="success">WEB-INF/JSPView/LoginView/Login.jsp</result>
+			
+			
+		</action>
+		
+		
+		<action name="logoutAdmin"	class="Business.Logout" method="logoutAdmin">
 			
 			<result name="success">WEB-INF/JSPView/LoginView/Login.jsp</result>
 			

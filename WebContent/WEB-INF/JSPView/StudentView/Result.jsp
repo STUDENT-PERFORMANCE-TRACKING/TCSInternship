@@ -81,7 +81,7 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right" style="margin-top:60px;" >
       				<li>
-						<a href="<s:url action="logoutStudent"/>" style="color:#3366FF;">
+						<a href="<s:url action="logout"/>" style="color:#3366FF;">
 						<span class="glyphicon glyphicon-off"></span> Log-out</a>
 					</li>
       				<li>
@@ -134,7 +134,7 @@
 						<tr>
 							<th class="text-center">Subject</th>
 							<th class="text-center">Maximum Marks</th>
-							<th class="text-center">Marks</th>
+							<th class="text-center">Obtained Marks</th>
 		                </tr>
 		
 	   				 	<s:iterator value="studentresult" >

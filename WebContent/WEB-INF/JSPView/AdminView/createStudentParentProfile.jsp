@@ -83,7 +83,7 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right" style="margin-top:60px;" >
       				<li>
-						<a href="<s:url action="LogoutAdmin"/>" style="color:#3366FF;">
+						<a href="<s:url action="logoutAdmin"/>" style="color:#3366FF;">
 						<span class="glyphicon glyphicon-off"></span> Log-out</a>
 					</li>
       				<li>

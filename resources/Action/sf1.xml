@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation"	value="false" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.custom.i18n.resources" value="resources/Message"></constant>
+
+	<package name="xyz" extends="struts-default" namespace="/" >	
+		
+		<action name="wxyz"	class="Business.StudentOrSubject" method="sf1">
+			<result name="error">WEB-INF/JSPView/FacultyView/SelectStudent.jsp</result>
+		</action>
+		
+		<action name="vwxyz" class="Business.SelectStudent" method="sf2">
+			<result name="error">WEB-INF/JSPView/FacultyView/EditMarks.jsp</result>
+		</action>
+		
+		<action name="uvwxyz" class="Business.EditMarks" method="sf3">
+			<result name="error">WEB-INF/JSPView/FacultyView/new.jsp</result>
+		</action>
+		
+	</package>
+	
+	
+</struts>
