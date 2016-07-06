@@ -8,7 +8,15 @@ public class StudentOrSubject
 	private Model.Result Result = new Model.Result();
 	private String studentSubject;
 	private Integer SubjectId;
+	private Integer ObtainedMarks;
+	private Boolean Check;
 	
+	public Boolean getCheck() {
+		return Check;
+	}
+	public void setCheck(Boolean check) {
+		Check = check;
+	}
 	public Model.Student getStudent() {
 		return Student;
 	}
@@ -33,5 +41,11 @@ public class StudentOrSubject
 	public void setSubjectId(Integer subjectId) {
 		SubjectId = subjectId;
 	}
-
+	public Integer getObtainedMarks() {
+		return ObtainedMarks;
+	}
+	public void setObtainedMarks(Integer obtainedMarks) {
+		ObtainedMarks = obtainedMarks;
+	}
+	
 }

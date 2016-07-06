@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import org.hibernate.Query;
 import org.hibernate.classic.Session;
 
-public class EditMarks 
+public class DeleteMarks 
 {
-	public String save(ArrayList<Model.StudentOrSubject> r, Model.StudentOrSubject ss)
+	public String softDelete(ArrayList<Model.StudentOrSubject> r, Model.StudentOrSubject ss)
 	{
 		
 		Session session = Database.getSessionFactory().openSession();
@@ -15,17 +15,19 @@ public class EditMarks
 		{
 		  for(Model.StudentOrSubject s:r)
 		  {
-			
+			if(s.getCheck() == true)
+			{	
 			session.beginTransaction();
-			Query query = session.createSQLQuery("update studentresult set marks=:ObtainedMarks where rollno=:RollNo and subjectid=:SubjectId");
-			query.setParameter("ObtainedMarks",s.getObtainedMarks());
+			Query query = session.createSQLQuery("update studentresult set Visible=:visible where rollno=:RollNo and subjectid=:SubjectId");
+			query.setParameter("visible",0);
 			query.setParameter("RollNo", ss.getStudent().getRollNo());
 			query.setParameter("SubjectId", s.getSubjectId());
 			
 			query.executeUpdate();
 			session.getTransaction().commit();
+			}
 			
-		   }
+		 }
 		  
 		  return "success";
 		}  
@@ -33,6 +35,7 @@ public class EditMarks
 			
 		catch(Exception e)
 			{
+			    session.getTransaction().rollback();
 				System.out.println(e.getMessage());
 				return "error";
 				

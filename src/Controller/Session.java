@@ -27,7 +27,7 @@ public class Session {
 	
 	public Model.Faculty getCurrentFacultySession(Map<String, Object> sessionMap)
 	{
-		if(sessionMap.get("parent")==null)
+		if(sessionMap.get("faculty")==null)
 			return null;
 		else
 			return (Model.Faculty)sessionMap.get("faculty");

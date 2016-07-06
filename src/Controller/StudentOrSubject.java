@@ -19,7 +19,7 @@ public class StudentOrSubject
 		
 		StudentRollNo=new ArrayList<Integer>(); 
 		
-		Query query = session.createSQLQuery("select RollNo from Student where BranchId=:branchId");
+		Query query = session.createSQLQuery("select RollNo from student where BranchId=:branchId");
 		query.setParameter("branchId",s.getStudent().getBranchId());
 		StudentRollNo=(ArrayList<Integer>) query.list();
 				

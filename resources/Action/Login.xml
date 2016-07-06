@@ -21,13 +21,13 @@
 			
 			<result name="studentlogin">WEB-INF/JSPView/StudentView/Semester.jsp</result>
 			<result name="parentlogin">WEB-INF/JSPView/ParentView/ParentStudentSelection.jsp</result>
-			<result name="facultylogin">WEB-INF/JSPView/FacultyView/StudentOrSubject.jsp</result>
+			<result name="facultylogin">WEB-INF/JSPView/FacultyView/FacultySelect.jsp</result>
 			
             <result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>
             
 			<result name="studentalreadylogin">WEB-INF/JSPView/Student/Semester.jsp</result>
 			<result name="parentalreadylogin">WEB-INF/JSPView/ParentView/ParentStudentSelection.jsp</result>
-			<result name="facultyalreadylogin">WEB-INF/JSPView/FacultyView/StudentOrSubject.jsp</result>
+			<result name="facultyalreadylogin">WEB-INF/JSPView/FacultyView/FacultySelect.jsp</result>
 			
             <result name="invalid.token" type="redirect">loginresubmit</result>   
           	<result name="input">WEB-INF/JSPView/FacultyView/Login.jsp</result>
@@ -44,7 +44,7 @@
 			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>
 			<result name="studentalreadylogin">WEB-INF/JSPView/StudentView/Semester.jsp</result>
 			<result name="parentalreadylogin">WEB-INF/JSPView/ParentView/ParentStudentSelection.jsp</result>
-			<result name="facultyalreadylogin">WEB-INF/JSPView/FacultyView/StudentOrSubject.jsp</result>
+			<result name="facultyalreadylogin">WEB-INF/JSPView/FacultyView/FacultySelect.jsp</result>
           	<result name="input">WEB-INF/JSPView/FacultyView/Login.jsp</result>
              
 	    
@@ -57,7 +57,7 @@
 			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>
 			<result name="studentalreadylogin">WEB-INF/JSPView/StudentView/Semester.jsp</result>
 			<result name="parentalreadylogin">WEB-INF/JSPView/ParentView/ParentStudentSelection.jsp</result>
-			<result name="facultyalreadylogin">WEB-INF/JSPView/FacultyView/Login.jsp</result>
+			<result name="facultyalreadylogin">WEB-INF/JSPView/FacultyView/FacultySelect.jsp</result>
 	<!--  		<result name="input">WEB-INF/JSPView/FacultyView/Login.jsp</result>
              
 	   -->

@@ -5,29 +5,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Edit Marks</title>
+<title>Delete Marks</title>
 </head>
 <body>
 
-<s:form action="uvwxyz">
+<s:form action="deleteStudentMarks">
 	
 	<input type="text" name="s.Student.BranchId" value="<s:property value="s.Student.BranchId"/>" />
 	<input type="text" name="s.Result.SemesterFirst" value="<s:property value="s.Result.SemesterFirst"/>" />
 	<input type="text" name="s.Student.RollNo" value="<s:property value="s.Student.RollNo"/>" />
-	<!--  
-	<s:iterator value="r" status="rowStatus"><br>
-		
-		<s:textfield name="r[%{#rowStatus.index}].studentSubject" value="%{SubjectId}" label ="%{studentSubject}"/>
 	
-	</s:iterator>
-	
-	-->
 	
 	<s:iterator value="r" status="elemsStatus">
    <tr>
   <td><s:textfield name="r[%{#elemsStatus.index}].studentSubject" value="%{studentSubject}" theme="simple"/></td>
     <td><s:textfield name="r[%{#elemsStatus.index}].SubjectId" value="%{SubjectId}" theme="simple"/></td>
     <td><s:textfield name="r[%{#elemsStatus.index}].ObtainedMarks" value="%{ObtainedMarks}" theme="simple"/></td>
+    <td><s:checkbox name="r[%{#elemsStatus.index}].Check" value="%{Check}" theme="simple"/></td>
   
     </tr>
   </s:iterator>

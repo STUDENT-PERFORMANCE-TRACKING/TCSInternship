@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.ModelDriven;
 
 import Model.StudentOrSubject;
 
-public class EditMarks implements SessionAware
+public class DeleteMarks implements SessionAware
 {
 	
 	private Model.StudentOrSubject s=new Model.StudentOrSubject();
@@ -17,17 +17,18 @@ public class EditMarks implements SessionAware
 	
 	private Map<String, Object> sessionMap;
 	
-	public String sf3()
+	public String deleteStudentMarks()
 	{
 		if(new Controller.Session().getCurrentFacultySession(sessionMap) == null)
 			return "error";
 		
-		System.out.println("edit marks class----");
+		System.out.println("delete marks class----");
 		
 		System.out.println("semester : "+s.getResult().getSemesterFirst());
 		System.out.println("branchid : "+s.getStudent().getBranchId());
 		System.out.println("roll no : "+s.getStudent().getRollNo());
-	
+		System.out.println("roll no : "+s.getCheck());
+		
 		System.out.println("size : "+r.size());
 		
 		for(Model.StudentOrSubject a : r)
@@ -37,7 +38,7 @@ public class EditMarks implements SessionAware
 		//	System.out.println("subjectid : "+sss);
 	
 		
-		if(new Controller.EditMarks().save(r,s)=="success")
+		if(new Controller.DeleteMarks().softDelete(r,s)=="success")
 		   return "error";
 		
 		else
@@ -84,3 +85,4 @@ public class EditMarks implements SessionAware
 
 
 }
+

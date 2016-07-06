@@ -1,18 +1,25 @@
 package Business;
 
 import java.util.ArrayList;
+import java.util.Map;
+
+import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class StudentOrSubject extends ActionSupport implements ModelDriven 
+public class StudentOrSubject extends ActionSupport implements ModelDriven ,SessionAware
 {
-	private Model.StudentOrSubject s =new Model.StudentOrSubject();
+	private Model.StudentOrSubject s = new Model.StudentOrSubject();
 	ArrayList<Integer> StudentRollNo;
-	
+	private Map<String, Object> sessionMap;
 	
 	public String sf1()
 	{
+		if(new Controller.Session().getCurrentFacultySession(sessionMap) == null)
+			return ERROR;
+		
+		
 		//System.out.println("Branchid : "+s.getStudent().getBranchId());
 		if(s.getStudentSubject().equals("Student"))
 		{
@@ -20,7 +27,7 @@ public class StudentOrSubject extends ActionSupport implements ModelDriven
 			for(Integer i : StudentRollNo)
 				System.out.println(i);
 			
-			return "error";
+			return "studentoption";
 		}
 		else
 			return "good";
@@ -49,6 +56,14 @@ public class StudentOrSubject extends ActionSupport implements ModelDriven
 
 	public void setS(Model.StudentOrSubject s) {
 		this.s = s;
+	}
+
+
+
+	@Override
+	public void setSession(Map<String, Object> sessionMap) {
+		this.sessionMap=sessionMap;
+		
 	}
 
 }
