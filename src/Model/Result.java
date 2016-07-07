@@ -15,7 +15,14 @@ public class Result
 	private String StudentName;
 	private int Year;
 	private String ResultType;
+	private String ResultStatus;
 	
+	public String getResultStatus() {
+		return ResultStatus;
+	}
+	public void setResultStatus(String resultStatus) {
+		ResultStatus = resultStatus;
+	}
 	public Model.Student getStudent() {
 		return student;
 	}

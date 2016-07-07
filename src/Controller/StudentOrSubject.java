@@ -19,11 +19,39 @@ public class StudentOrSubject
 		
 		StudentRollNo=new ArrayList<Integer>(); 
 		
-		Query query = session.createSQLQuery("select RollNo from student where BranchId=:branchId");
+		Query query = session.createSQLQuery("select RollNo from Student where BranchId=:branchId");
 		query.setParameter("branchId",s.getStudent().getBranchId());
 		StudentRollNo=(ArrayList<Integer>) query.list();
 				
 		return StudentRollNo;
+	}
+	
+	
+	public ArrayList<String> sf2(Model.StudentOrSubject s)
+	{
+		Session session = Database.getSessionFactory().openSession();
+		session.beginTransaction();
+		
+		Model.EditMarks em= new Model.EditMarks();
+		ArrayList<Integer> id = new ArrayList<Integer>();
+		ArrayList<String> subject = new ArrayList<String>();
+		
+		Query query = session.createSQLQuery
+				("select semester, subjectname, subjectid from"
+			+ " (select a.branchid, b.semester, b.subjectname, b.subjectid from coursesubject a, subject b where a.subjectid=b.subjectid)"
+			+ " as a where semester=:semester and branchid=:branchId");
+		query.setParameter("semester",s.getResult().getSemesterFirst());
+		query.setParameter("branchId",s.getStudent().getBranchId());
+		
+		List<Object[]> row =query.list();
+		
+		for(Object[] r : row)
+		{
+			id.add((Integer) r[2]);
+			subject.add((String) r[1]);
+		}
+		
+		return subject;
 	}
 	
 	

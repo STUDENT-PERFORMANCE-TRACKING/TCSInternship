@@ -97,10 +97,10 @@
 						</div>
 						
 						<select name="OptionSelected" class="form-control ">
-							<option selected value="Student">Create</option>
-							<option>View</option>
-							<option>Update</option>
-							<option>Delete</option>
+							<option selected value="Student">create</option>
+							<option>view</option>
+							<option>update</option>
+							<option>delete</option>
 						</select>
 						
 						<div style="margin-top:5px;">

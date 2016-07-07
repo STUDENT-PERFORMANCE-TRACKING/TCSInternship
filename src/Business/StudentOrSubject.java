@@ -1,25 +1,23 @@
 package Business;
 
 import java.util.ArrayList;
-import java.util.Map;
-
-import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class StudentOrSubject extends ActionSupport implements ModelDriven ,SessionAware
+public class StudentOrSubject extends ActionSupport implements ModelDriven 
 {
 	private Model.StudentOrSubject s = new Model.StudentOrSubject();
-	ArrayList<Integer> StudentRollNo;
-	private Map<String, Object> sessionMap;
+	ArrayList<Integer> StudentRollNo = new ArrayList<Integer>();
+	ArrayList<String> StudentSubjectList = new ArrayList<String>();
+
 	
+	
+
+
+
 	public String sf1()
 	{
-		if(new Controller.Session().getCurrentFacultySession(sessionMap) == null)
-			return ERROR;
-		
-		
 		//System.out.println("Branchid : "+s.getStudent().getBranchId());
 		if(s.getStudentSubject().equals("Student"))
 		{
@@ -27,10 +25,17 @@ public class StudentOrSubject extends ActionSupport implements ModelDriven ,Sess
 			for(Integer i : StudentRollNo)
 				System.out.println(i);
 			
-			return "studentoption";
+			return "error";
 		}
 		else
+		{
+			StudentSubjectList=new Controller.StudentOrSubject().sf2(s);
+			System.out.println("Subject list size ="+StudentSubjectList.size());
+			for(String s:StudentSubjectList)
+				 System.out.println("sub name="+s);
 			return "good";
+			
+		}
 	}
 
 	
@@ -60,10 +65,17 @@ public class StudentOrSubject extends ActionSupport implements ModelDriven ,Sess
 
 
 
-	@Override
-	public void setSession(Map<String, Object> sessionMap) {
-		this.sessionMap=sessionMap;
-		
+	public ArrayList<String> getStudentSubjectList() {
+		return StudentSubjectList;
 	}
+
+
+
+	public void setStudentSubjectList(ArrayList<String> studentSubjectList) {
+		StudentSubjectList = studentSubjectList;
+	}
+
+	
+	
 
 }

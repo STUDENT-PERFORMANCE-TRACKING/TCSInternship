@@ -76,7 +76,8 @@ public class AdminAction extends ActionSupport implements ModelDriven, SessionAw
 		 if(new Controller.Session().getCurrentAdminSession(sessionMap)== null)
 			   return ERROR;
 		 
-		
+		System.out.println("parent "+sp.getFaculty().getEmailId());
+		 
 		if(new Controller.AdminAction().addFaculty(sp).equals("inserted"))
 		{
 			sp.setInsertstatus("Record Successfully Inserted");

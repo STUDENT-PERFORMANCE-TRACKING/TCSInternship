@@ -1,17 +1,17 @@
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%@ taglib prefix="s" uri = "/struts-tags" %>
-    
    
-   <%
+ <%
 
    response.addHeader("Cache-Control", "no-cache,no-store,private,must-revalidate,max-stale=0,post-check=0,pre-check=0"); 
    response.addHeader("Pragma", "no-cache"); 
    response.addDateHeader ("Expires", 0);
    %>
-   
-   
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html lang="en">
 
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
@@ -22,27 +22,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-      
+    
 	<title>PORTAL</title>
 	 
-    	 
     	<!-- Bootstrap core CSS -->
     	<link type = "text/css"		rel = "stylesheet"		href = "css/bootstrap.css">
 		<link type = "text/css"		rel = "stylesheet"		href = "css/bootstrap.min.css">
     	<link type = "text/css"		rel = "stylesheet"		href = "css/bootstrap-theme.css">
     	<link type = "text/css"		rel = "stylesheet"		href = "css/bootstrap-theme.min.css">
-    	
+    	  
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		
-		<script>
-			function myFunction() 
-			{
-    			window.print();
-			}
-			
-			
-		</script>
 		<style>
 			.popover-content 
 			{
@@ -50,6 +41,20 @@
       			color: #FFFFFF;
       		}
 		</style>
+		
+		<script type="text/javascript">
+		
+		function setStudentNameSemester()
+		{
+			document.getElementById("name1").value = document.getElementById("name").value;
+		}
+		
+		function setStudentNameYear()
+		{
+			document.getElementById("name2").value = document.getElementById("name").value;
+		}
+		
+		</script>
 		
 </head>
 <!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
@@ -93,7 +98,7 @@
 			</div>
 		</div>
 	</nav>
-	</div>
+	
 	<script>
 		$(document).ready(function(){
    		$('[data-toggle="popover"]').popover();
@@ -101,78 +106,63 @@
 	</script>
 		
 	
-
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
+<!-- --------------------------------------------------- Start Of Header ---------------------------------------------------------------------- -->
+<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
+						
+		<div class="container-fluid" style="background-color:#FFFFFF; padding-bottom:191px; padding-top:40px;">
+			<div class="col-md-8" style="padding-left:250px;">
+				
+				<form action=deleteSubjectMarks method="get">
+					
+					<input type="hidden" name="s.Student.BranchId" value="<s:property value="s.Student.BranchId"/>" />
 	
-	<br>
-	<div class="container">
-		<div class="panel panel-primary text-center" style="width:100%">
-			<div class="panel-heading">Student Result</div>
-			<div class="panel-body">
-				<div class="table-responsive">
-					<table class="table table-bordered" >
-						<tr>
-							<th>Name:</th>
-							<td colspan="2">
-								<s:property value="result.getStudent().getFirstName()"/>
-								<s:property value="result.getStudent().getLastName()"/></td>
-						</tr>
-						<tr>
-							<th>Fathers Name:</th>
-							<td colspan="2">
-							<s:property value="ParentName"/>
-							</td>
-							
-						</tr>
-						<tr>
-							<th>Roll No.</th>
-							<td colspan="2"><s:property value="result.getStudent().getRollNo()"/></td>
-						</tr>
-						<tr >
-							<th><s:property value="result.getResultType()"/></th>
-							<td colspan="2"><s:property value="result.getSemesterFirst()"/></td>
-						</tr>
-						<tr>
-							<th class="text-center">Subject</th>
-							<th class="text-center">Maximum Marks</th>
-							<th class="text-center">Obtained Marks</th>
-		                </tr>
-		
-	   				 	<s:iterator value="studentresult" >
-	     				<tr>
-	     					<td><s:property value="getSubjectName()"/> </td>
-	     					<td><s:property value="getMaximumMarks()"/></td>
-							<td><s:property value="getObtainedMarks()"/><s:property value="getStatus()"/></td>
-						</tr>     
-		                </s:iterator>
-	   					
-						<tr>
-							<th class="text-center">Total Marks </th>
-							<td colspan="2"><s:property value="result.getTotalMarks()"/>/<s:property value="result.getMaximumMarks()"/></td>
-						</tr>
-					</table>			
-				</div>			
+					<input type="hidden" name="s.Result.SemesterFirst" value="<s:property value="s.Result.SemesterFirst"/>" />
+	
+					<input type="hidden" name="s.Student.RollNo" value="<s:property value="s.Student.RollNo"/>" />
+	
+					
+					<table class="table table-borderless table-condensed table-hover">
+
+						<thead>
+							<div >
+								<h3><strong>Please tick the result row you want to delete </strong></h3>
+							</div>
+						</thead>
+					<s:iterator value="r" status="elemsStatus">
+   						 <!--  
+  						<s:textfield name="r[%{#elemsStatus.index}].studentSubject" value="%{studentSubject}" theme="simple"/>
+   						<s:textfield name="r[%{#elemsStatus.index}].SubjectId" value="%{SubjectId}" theme="simple"/>
+    					<s:textfield name="r[%{#elemsStatus.index}].ObtainedMarks" value="%{ObtainedMarks}" theme="simple"/>
+  
+      					--> 
+      					
+      					<tr>
+      						<td><s:property value="RollNo"/></td>
+    				       <td><s:property value="ObtainedMarks"/></td>     
+    				       <td><s:checkbox name="r[%{#elemsStatus.index}].Check" value="%{Check}" theme="simple"/></td>
+    					
+      					</tr>
+      					
+      				    <s:hidden name="r[%{#elemsStatus.index}].studentSubject" value="%{studentSubject}" theme="simple"/>
+   						<s:hidden name="r[%{#elemsStatus.index}].SubjectId" value="%{SubjectId}" theme="simple"/>
+   						<td><s:hidden name="r[%{#elemsStatus.index}].RollNo" value="%{RollNo}" theme="simple"/></td>
+      					
+  					</s:iterator>
+					</table>
+					
+					<div style="margin-top:5px;">
+						<button type="submit" class="btn btn-block btn-primary">SUBMIT</button>
+					</div>
+					
+				</form>
 			</div>
-		<div class="panel-footer panel-default"><s:property value="result.getResultStatus()"/> </div>
 		</div>
-		<button type="button" class="btn btn-success btn-md" onClick="myFunction()" style="margin-left:550px; margin-bottom:5px">
-			<Strong>Print</Strong>
-		</button>
-	</div>
-
-
-
-<div class="container-fluid" style="background-color:#400040;color:#fff;height:53px;">
-		<p class="text-center" style="padding-top:15px;">&copy;Copyright Protected : Oak Art</p>
-	</div>		
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
-<!-- --------------------------------------------------- Start Of Footer ---------------------------------------------------------------------- -->
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
-
-</body>
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
-<!-- --------------------------------------------------- End Body content --------------------------------------------------------------------- -->
-<!-- ------------------------------------------------------------------------------------------------------------------------------------------ -->
-
-
-
+						
+			
+		<div class="container-fluid" style="background-color:#400040;color:#fff;height:53px;">
+			<p class="text-center" style="padding-top:15px;">&copy;Copyright Protected : Oak Art</p>
+		</div>
+				
+	</body>
 </html>

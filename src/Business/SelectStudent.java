@@ -11,6 +11,7 @@ public class SelectStudent implements ModelDriven,SessionAware
 {
 	private Model.StudentOrSubject s=new Model.StudentOrSubject();
 	ArrayList<Model.StudentOrSubject> r;
+	
 	private Map<String, Object> sessionMap;
 	
 	public String sf2()
@@ -30,17 +31,17 @@ public class SelectStudent implements ModelDriven,SessionAware
 			System.out.println("marks : "+ss.getObtainedMarks());
 		}
 		
+		if(sessionMap.get("optionselected").equals("view"))
+		  return "view";
 		
-		System.out.println("session map contain== "+sessionMap.get("optionselected"));
+		else  if(sessionMap.get("optionselected").equals("create"))
+			  return "create";
 		
-		if(sessionMap.get("optionselected").equals("Update")  ||  sessionMap.get("optionselected").equals("View"))
-		  return "updatemarks";
+		else  if(sessionMap.get("optionselected").equals("update"))
+			  return "update";
 		
-		else if(sessionMap.get("optionselected").equals("Delete"))
-			  return "deletemarks";
-		
-		else 
-			  return "createmarks";
+		else
+			return "delete";
 	}
 	
 	

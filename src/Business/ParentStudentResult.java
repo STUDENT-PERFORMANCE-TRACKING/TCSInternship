@@ -23,6 +23,10 @@ public class ParentStudentResult extends ActionSupport implements ModelDriven ,S
 		getResult().setParentName(new Controller.Session().getCurrentParentSession(sessionMap).getParentName());
 		getResult().setStudent(new Controller.ParentStudentSelection().getStudent(result.getStudentName(), new Controller.Session().getCurrentParentSession(sessionMap).getParentId()));
 		result= new Controller.StudentResult().result(result);
+		result.setResultStatus(new Controller.StudentResultView().setResultStatus(result.getStudentresult()));
+		
+		System.out.println("result status "+result.getResultStatus());
+		
 		return SUCCESS;
 		
 	}
@@ -42,6 +46,8 @@ public class ParentStudentResult extends ActionSupport implements ModelDriven ,S
 		result= new Controller.StudentResult().result(result);
 		result.getStudentresult().addAll(new Controller.StudentResultView().getStudentResultView(result.getStudent().getRollNo(), result.getSemesterSecond()));
 		result.setSemesterFirst(result.getYear());
+		result.setResultStatus(new Controller.StudentResultView().setResultStatus(result.getStudentresult()));
+
 		return SUCCESS;
 		
 	}

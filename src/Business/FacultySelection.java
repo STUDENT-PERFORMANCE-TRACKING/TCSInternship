@@ -18,6 +18,7 @@ public class FacultySelection extends ActionSupport implements SessionAware{
 		
 		sessionMap.put("optionselected", OptionSelected);
 		
+		/*
 		if(OptionSelected == "Create")
 		{
 			return "create";
@@ -36,7 +37,10 @@ public class FacultySelection extends ActionSupport implements SessionAware{
 		else 
 		{
 			return "delete";
-		}
+		}    
+		          */
+		
+		return SUCCESS;
 		
 	}
 	

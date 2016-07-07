@@ -10,38 +10,61 @@
 	<constant name="struts.custom.i18n.resources" value="resources/Message"></constant>
 
 	<package name="xyz" extends="struts-default" namespace="/" >	
-	
-	   <action name="facultySelectAction"	class="Business.FacultySelection" method="getOptionSelected">
-			<result name="create">WEB-INF/JSPView/FacultyView/StudentOrSubject.jsp</result>
-			<result name="view">WEB-INF/JSPView/FacultyView/StudentOrSubject.jsp</result>
-			<result name="delete">WEB-INF/JSPView/FacultyView/StudentOrSubject.jsp</result>
-			<result name="edit">WEB-INF/JSPView/FacultyView/StudentOrSubject.jsp</result>
-			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>
-
+		
+		<action name="facultySelectAction"	class="Business.FacultySelection" method="getOptionSelected">
+			<result name="success">WEB-INF/JSPView/FacultyView/StudentOrSubject.jsp</result>
+		
+		<!--  	<result name="create">WEB-INF/JSPView/FacultyView/StudentOrSubject.jsp</result>
+			<result name="view">WEB-INF/JSPView/FacultyView/SelectSubject.jsp</result>
+			<result name="update">WEB-INF/JSPView/FacultyView/StudentOrSubject.jsp</result>
+			<result name="delete">WEB-INF/JSPView/FacultyView/SelectSubject.jsp</result>      -->
+			
 		</action>
 		
 		<action name="wxyz"	class="Business.StudentOrSubject" method="sf1">
-			<result name="studentoption">WEB-INF/JSPView/FacultyView/SelectStudent.jsp</result>
-			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>
-
+			<result name="error">WEB-INF/JSPView/FacultyView/SelectStudent.jsp</result>
+			<result name="good">WEB-INF/JSPView/FacultyView/SelectSubject.jsp</result>
 		</action>
 		
 		<action name="vwxyz" class="Business.SelectStudent" method="sf2">
-			<result name="updatemarks">WEB-INF/JSPView/FacultyView/EditMarks.jsp</result>
-			<result name="deletemarks">WEB-INF/JSPView/FacultyView/DeleteMarks.jsp</result>
-			<result name="createmarks">WEB-INF/JSPView/FacultyView/EditMarks.jsp</result>
+			<result name="view">WEB-INF/JSPView/FacultyView/ViewMarksStudent.jsp</result>
+			<result name="create">WEB-INF/JSPView/FacultyView/CreateMarksStudent.jsp</result>
+			<result name="update">WEB-INF/JSPView/FacultyView/EditMarks.jsp</result>
+			<result name="delete">WEB-INF/JSPView/FacultyView/DeleteMarksStudent.jsp</result>
 			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>
-
 		</action>
 		
 		<action name="uvwxyz" class="Business.EditMarks" method="sf3">
-			<result name="error">WEB-INF/JSPView/FacultyView/new.jsp</result>
+			<result name="error">WEB-INF/JSPView/FacultyView/updatePage.jsp</result>
 		</action>
 		
 		<action name="deleteStudentMarks" class="Business.DeleteMarks" method="deleteStudentMarks">
-			<result name="error">WEB-INF/JSPView/FacultyView/new.jsp</result>
+			<result name="updated">WEB-INF/JSPView/FacultyView/updatePage.jsp</result>
+			<result name="notupdated">WEB-INF/JSPView/FacultyView/DeleteMarksStudent.jsp</result>
+			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>
+			
 		</action>
 		
+		<action name="abc" class="Business.SelectSubject" method="sf3">
+			<result name="view">WEB-INF/JSPView/FacultyView/ViewMarksSubject.jsp</result>
+			<result name="create">WEB-INF/JSPView/FacultyView/CreateMarksSubject.jsp</result>
+			<result name="update">WEB-INF/JSPView/FacultyView/EditMarksSubject.jsp</result>
+			<result name="delete">WEB-INF/JSPView/FacultyView/DeleteMarksSubject.jsp</result>
+			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>
+		</action>
+		
+		<action name="abcd" class="Business.SaveMarks" method="save">
+			<result name="updated">WEB-INF/JSPView/FacultyView/updatePage.jsp</result>
+			<result name="notupdated">WEB-INF/JSPView/FacultyView/EditMarksSubject.jsp</result>
+		</action>
+		
+		<action name="deleteSubjectMarks" class="Business.DeleteMarks" method="deleteSubjectMarks">
+			<result name="updated">WEB-INF/JSPView/FacultyView/updatePage.jsp</result>
+			<result name="notupdated">WEB-INF/JSPView/FacultyView/DeleteMarksStudent.jsp</result>
+			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>
+			
+		</action>
+			
 	</package>
 	
 	

@@ -38,6 +38,24 @@ public class StudentResultView {
 	    	studentresult.setObtainedMarks((int) row[0]);
 	    	studentresult.setSubjectName((String) row[1]);
 	    	studentresult.setMaximumMarks((int) row[2]);
+	    	
+	    	if(studentresult.getMaximumMarks() == 100 )
+	    	{
+	    		if(studentresult.getObtainedMarks() < 25)
+	    			studentresult.setStatus("*");
+	    		
+	    		else if(studentresult.getObtainedMarks() < 30)
+	    			studentresult.setStatus("$");
+	    	}
+	    	
+	    	else if(studentresult.getMaximumMarks() == 75 )
+	    	{
+	    		if(studentresult.getObtainedMarks() < 17)
+	    			studentresult.setStatus("*");
+	    		
+	    		else if(studentresult.getObtainedMarks() < 22)
+	    			studentresult.setStatus("$");
+	    	}
 	    	    	
 	    	studentresultview.add(studentresult);	    	
 	    			
@@ -46,6 +64,24 @@ public class StudentResultView {
 	    session.close();
 	    return studentresultview;
 	
+	}
+	
+	public String setResultStatus(ArrayList<Model.StudentResultView>  result)
+	{  
+		int NoOfGrace=0;;
+		for(Model.StudentResultView r:result)
+		{
+			if(r.getStatus().equals("*"))
+				NoOfGrace++;
+			
+			if(NoOfGrace>2  || r.getStatus().equals("*"))
+				return "Failed";
+		}
+		
+		if(NoOfGrace == 1  && NoOfGrace == 2)
+		  return "Pass with Grace";
+		else
+		  return "Pass";	
 	}
 	
 	

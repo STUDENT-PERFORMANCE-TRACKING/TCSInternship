@@ -111,7 +111,7 @@
 	<div class="container-fluid" style="background-color:#FFFFFF;">
 	<div class="col-md-12" >
 	<div style="margin-left:300px; margin-right:400px;">
-	<form>
+	<form action="addFaculty" method="get" name="FacultyProfile">
 		
 		<br><br>
 		
@@ -119,16 +119,16 @@
 			<legend><h2><strong>Faculty Details</strong></h2> </legend>
 			<div class="form-group col-md-8">
 				<h4><strong>Name :</strong></h4>
-					<input type="text"  name="sp.parent.ParentName" class="form-control input-md" id="inputdefault" required>
+					<input type="text"  name="sp.faculty.FacultyName" class="form-control input-md" id="inputdefault" required>
 				<h4><strong>Email-Id :</strong></h4>
-					<input type="email" name="sp.parent.EmailId" class="form-control input-md" id="inputdefault" required>
+					<input type="email" name="sp.faculty.EmailId" class="form-control input-md" id="inputdefault" required>
 				<h4><strong>Password :</strong></h4>
-					<input type="Password" name="sp.parent.Password" class="form-control input-md" id="inputdefault" required>
+					<input type="Password" name="sp.faculty.Password" class="form-control input-md" id="inputdefault" required>
 			</div>
 		</fieldset>
 		
 		<div class="col-md-8" style="padding-bottom:122px;">
-			<input type="button" class="btn btn-block btn-primary" name="submit" value="submit"/>	
+			<button type="submit" class="btn btn-block btn-primary">SUBMIT</button>
 		</div>
 	</form>
 	</div>

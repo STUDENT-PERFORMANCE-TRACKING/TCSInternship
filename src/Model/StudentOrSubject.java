@@ -10,7 +10,15 @@ public class StudentOrSubject
 	private Integer SubjectId;
 	private Integer ObtainedMarks;
 	private Boolean Check;
+	private int RollNo;
 	
+	
+	public int getRollNo() {
+		return RollNo;
+	}
+	public void setRollNo(int rollNo) {
+		RollNo = rollNo;
+	}
 	public Boolean getCheck() {
 		return Check;
 	}

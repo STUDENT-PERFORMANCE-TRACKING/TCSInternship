@@ -23,6 +23,8 @@ public class StudentResult extends ActionSupport implements ModelDriven ,Session
 		getResult().setStudent(new Controller.Session().getCurrentStudentSession(sessionMap));
 		result= new Controller.StudentResult().result(result);
 		result.setResultType("Semester");
+		result.setResultStatus(new Controller.StudentResultView().setResultStatus(result.getStudentresult()));
+
 		return SUCCESS;
 		
 	}
@@ -37,6 +39,9 @@ public class StudentResult extends ActionSupport implements ModelDriven ,Session
 		result.getStudentresult().addAll(new Controller.StudentResultView().getStudentResultView(result.getStudent().getRollNo(), result.getSemesterSecond()));
 		result.setResultType("Year");
 		result.setSemesterFirst(result.getYear());
+		result.setResultStatus(new Controller.StudentResultView().setResultStatus(result.getStudentresult()));
+
+		
 		return SUCCESS;
 		
 	}

@@ -38,8 +38,51 @@ public class DeleteMarks implements SessionAware
 		//	System.out.println("subjectid : "+sss);
 	
 		
-		if(new Controller.DeleteMarks().softDelete(r,s)=="success")
-		   return "error";
+		if(new Controller.DeleteMarks().softDeleteStudent(r,s)=="success")
+		   return "updated";
+		
+		else
+		  return "notupdated";	
+		
+		/*
+		System.out.println("kadhgkahk--");
+		for(Model.StudentOrSubject ss : r)
+			System.out.println("kashdgiahsdguiehiurbgv"+ss.getStudentSubject());
+		for(Model.StudentOrSubject ss : r)
+		{
+			System.out.println("semester : "+ss.getResult().getSemesterFirst());
+			System.out.println("branchid : "+ss.getStudent().getBranchId());
+			System.out.println("roll no: "+ss.getStudent().getRollNo());
+			
+		}
+		*/
+	}
+	
+	
+	
+	public String deleteSubjectMarks()
+	{
+		if(new Controller.Session().getCurrentFacultySession(sessionMap) == null)
+			return "error";
+		
+		System.out.println("delete marks class----");
+		
+		System.out.println("semester : "+s.getResult().getSemesterFirst());
+		System.out.println("branchid : "+s.getStudent().getBranchId());
+		System.out.println("roll no : "+s.getStudent().getRollNo());
+		System.out.println("roll no : "+s.getCheck());
+		
+		System.out.println("size : "+r.size());
+		
+		for(Model.StudentOrSubject a : r)
+			System.out.println("subject name : "+a.getStudentSubject());
+			
+		//for(int sss : s.getSubjectId())
+		//	System.out.println("subjectid : "+sss);
+	
+		
+		if(new Controller.DeleteMarks().softDeleteSubject(r,s)=="success")
+		   return "updated";
 		
 		else
 		  return "notupdated";	

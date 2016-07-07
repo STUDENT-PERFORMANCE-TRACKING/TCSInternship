@@ -22,7 +22,6 @@ public class SelectStudent
 				("select * from(select a.subjectname, b.subjectid, b.rollno, b.marks, b.semester from subject a, studentresult b where a.subjectid=b.subjectid) as x where semester=:SemesterFirst and rollno=:RollNo");
 		query.setParameter("SemesterFirst",s.getResult().getSemesterFirst());
 		query.setParameter("RollNo",s.getStudent().getRollNo());
-		
 
 		r=new ArrayList<Model.StudentOrSubject>();
 		List<Object[]> row=query.list();
