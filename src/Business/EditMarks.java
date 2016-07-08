@@ -15,10 +15,13 @@ public class EditMarks implements SessionAware
 	private Model.StudentOrSubject s=new Model.StudentOrSubject();
 	ArrayList<Model.StudentOrSubject> r;
 	
-
+	private Map<String, Object> sessionMap;
 	
 	public String sf3()
 	{
+		if(new Controller.Session().getCurrentFacultySession(sessionMap) == null)
+			return "error";
+		
 		System.out.println("edit marks class----");
 		
 		System.out.println("semester : "+s.getResult().getSemesterFirst());
@@ -36,7 +39,7 @@ public class EditMarks implements SessionAware
 		
 		
 		if(new Controller.EditMarks().save(r,s)=="success")
-		   return "error";
+		   return "updated";
 		
 		else
 		  return "notupdated";	
@@ -72,8 +75,8 @@ public class EditMarks implements SessionAware
 	}
 
 	@Override
-	public void setSession(Map<String, Object> arg0) {
-		// TODO Auto-generated method stub
+	public void setSession(Map<String, Object> sessionMap) {
+		this.sessionMap=sessionMap;
 		
 	}
 

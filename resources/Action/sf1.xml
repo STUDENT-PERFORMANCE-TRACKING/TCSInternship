@@ -13,6 +13,7 @@
 		
 		<action name="facultySelectAction"	class="Business.FacultySelection" method="getOptionSelected">
 			<result name="success">WEB-INF/JSPView/FacultyView/StudentOrSubject.jsp</result>
+			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp.jsp</result>
 		
 		<!--  	<result name="create">WEB-INF/JSPView/FacultyView/StudentOrSubject.jsp</result>
 			<result name="view">WEB-INF/JSPView/FacultyView/SelectSubject.jsp</result>
@@ -22,8 +23,9 @@
 		</action>
 		
 		<action name="wxyz"	class="Business.StudentOrSubject" method="sf1">
-			<result name="error">WEB-INF/JSPView/FacultyView/SelectStudent.jsp</result>
-			<result name="good">WEB-INF/JSPView/FacultyView/SelectSubject.jsp</result>
+			<result name="StudentWise">WEB-INF/JSPView/FacultyView/SelectStudent.jsp</result>
+			<result name="SubjectWise">WEB-INF/JSPView/FacultyView/SelectSubject.jsp</result>
+			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp.jsp</result>
 		</action>
 		
 		<action name="vwxyz" class="Business.SelectStudent" method="sf2">
@@ -35,7 +37,9 @@
 		</action>
 		
 		<action name="uvwxyz" class="Business.EditMarks" method="sf3">
-			<result name="error">WEB-INF/JSPView/FacultyView/updatePage.jsp</result>
+			<result name="updated">WEB-INF/JSPView/FacultyView/updatePage.jsp</result>
+			<result name="notupdated">WEB-INF/JSPView/FacultyView/EditMarks.jsp</result>
+			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>
 		</action>
 		
 		<action name="deleteStudentMarks" class="Business.DeleteMarks" method="deleteStudentMarks">
@@ -56,6 +60,7 @@
 		<action name="abcd" class="Business.SaveMarks" method="save">
 			<result name="updated">WEB-INF/JSPView/FacultyView/updatePage.jsp</result>
 			<result name="notupdated">WEB-INF/JSPView/FacultyView/EditMarksSubject.jsp</result>
+			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>
 		</action>
 		
 		<action name="deleteSubjectMarks" class="Business.DeleteMarks" method="deleteSubjectMarks">

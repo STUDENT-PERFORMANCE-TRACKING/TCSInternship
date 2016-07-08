@@ -115,6 +115,8 @@
 	<div class="col-md-12" >
 	<div style="margin-left:300px; margin-right:400px;">
 	<form action="addStudentParent" method="get" name="StudentParentProfile">
+	
+	  <h3> <s:property  value="sp.insertstatus"/>     </h3>
 		
 		<fieldset>
 			<legend><h2><strong>Student Details</strong></h2></legend>

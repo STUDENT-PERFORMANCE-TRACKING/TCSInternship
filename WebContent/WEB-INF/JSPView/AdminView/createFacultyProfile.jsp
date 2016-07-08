@@ -114,7 +114,7 @@
 	<form action="addFaculty" method="get" name="FacultyProfile">
 		
 		<br><br>
-		
+		<h3> <s:property  value="sp.insertstatus"/>     </h3>
 		<fieldset>
 			<legend><h2><strong>Faculty Details</strong></h2> </legend>
 			<div class="form-group col-md-8">

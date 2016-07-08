@@ -25,7 +25,7 @@ public class StudentOrSubject extends ActionSupport implements ModelDriven
 			for(Integer i : StudentRollNo)
 				System.out.println(i);
 			
-			return "error";
+			return "StudentWise";
 		}
 		else
 		{
@@ -33,7 +33,8 @@ public class StudentOrSubject extends ActionSupport implements ModelDriven
 			System.out.println("Subject list size ="+StudentSubjectList.size());
 			for(String s:StudentSubjectList)
 				 System.out.println("sub name="+s);
-			return "good";
+			
+			return "SubjectWise";
 			
 		}
 	}
