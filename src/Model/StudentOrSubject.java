@@ -11,8 +11,15 @@ public class StudentOrSubject
 	private Integer ObtainedMarks;
 	private Boolean Check;
 	private int RollNo;
+	private int Semester;
 	
 	
+	public int getSemester() {
+		return Semester;
+	}
+	public void setSemester(int semester) {
+		Semester = semester;
+	}
 	public int getRollNo() {
 		return RollNo;
 	}

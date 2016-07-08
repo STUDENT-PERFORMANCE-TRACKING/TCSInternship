@@ -97,7 +97,7 @@
 						</div>
 						
 						<select name="OptionSelected" class="form-control ">
-							<option selected value="Student">create</option>
+							<option selected value="create">create</option>
 							<option>view</option>
 							<option>update</option>
 							<option>delete</option>

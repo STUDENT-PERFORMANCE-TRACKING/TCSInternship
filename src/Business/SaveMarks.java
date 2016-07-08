@@ -12,6 +12,15 @@ public class SaveMarks implements ModelDriven,SessionAware
 	private Model.EditMarks em = new Model.EditMarks();
 	private ArrayList<Model.StudentOrSubject> r= new ArrayList<Model.StudentOrSubject>();
 	
+	public ArrayList<Model.StudentOrSubject> getR() {
+		return r;
+	}
+
+	public void setR(ArrayList<Model.StudentOrSubject> r) {
+		this.r = r;
+	}
+
+
 	private Map<String, Object> sessionMap;
 	
 	public String save()
@@ -20,6 +29,17 @@ public class SaveMarks implements ModelDriven,SessionAware
 			return "error";
 		
 		if(new Controller.SaveMarks().save(r).equals("success"))
+		  return "updated";
+		else
+			return "notupdated";
+	}
+	
+	public String saveSubjectResult()
+	{
+		if(new Controller.Session().getCurrentFacultySession(sessionMap) == null)
+			return "error";
+		System.out.println("e size in Controller.SaveMarks"+r.size());
+		if(new Controller.SaveMarks().saveSubjectResult(r).equals("success"))
 		  return "updated";
 		else
 			return "notupdated";

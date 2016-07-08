@@ -25,7 +25,11 @@ public class SelectSubject implements ModelDriven,SessionAware
 		System.out.println(s.getResult().getSemesterFirst());
 		System.out.println(s.getStudent().getBranchId());
 		System.out.println(s.getStudentSubject());
-		new Controller.SelectSubject().sf3(s,r);
+		
+		if(sessionMap.get("optionselected").equals("create"))
+			new Controller.SelectSubject().getStudentList(s, r);
+		else	
+		     new Controller.SelectSubject().sf3(s,r);
 		
 		System.out.println("araaylist of StudentOrSubject size="+r.size());
 		//System.out.println("list marks size="+em.getMarks().size());

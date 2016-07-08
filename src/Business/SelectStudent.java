@@ -19,16 +19,22 @@ public class SelectStudent implements ModelDriven,SessionAware
 		if(new Controller.Session().getCurrentFacultySession(sessionMap) == null)
 			return "error";
 		
-		r=new Controller.SelectStudent().sf2(s);
+		if(sessionMap.get("optionselected").equals("create"))
+			r= new Controller.SelectStudent().getSubjectList(s);
+		else
+		    r=new Controller.SelectStudent().sf2(s);
 		
 		System.out.println(" in Business.SelectStudent semester : "+s.getResult().getSemesterFirst());
 		System.out.println("branchid : "+s.getStudent().getBranchId());
 		System.out.println("roll no : "+s.getStudent().getRollNo());
+		System.out.println("sessionmap key contain"+sessionMap.get("optionselected"));
 		for(Model.StudentOrSubject ss : r)
 		{
 			System.out.println("subject name : "+ss.getStudentSubject());
 			System.out.println("subject id : "+ss.getSubjectId());
 			System.out.println("marks : "+ss.getObtainedMarks());
+			System.out.println("semester : "+ss.getSemester());
+
 		}
 		
 		if(sessionMap.get("optionselected").equals("view"))

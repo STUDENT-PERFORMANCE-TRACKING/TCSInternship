@@ -42,6 +42,12 @@
 			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>
 		</action>
 		
+		<action name="createStudentResult" class="Business.EditMarks" method="createStudentResult">
+			<result name="updated">WEB-INF/JSPView/FacultyView/updatePage.jsp</result>
+			<result name="notupdated">WEB-INF/JSPView/FacultyView/EditMarks.jsp</result>
+			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>
+		</action>
+		
 		<action name="deleteStudentMarks" class="Business.DeleteMarks" method="deleteStudentMarks">
 			<result name="updated">WEB-INF/JSPView/FacultyView/updatePage.jsp</result>
 			<result name="notupdated">WEB-INF/JSPView/FacultyView/DeleteMarksStudent.jsp</result>
@@ -58,6 +64,13 @@
 		</action>
 		
 		<action name="abcd" class="Business.SaveMarks" method="save">
+			<result name="updated">WEB-INF/JSPView/FacultyView/updatePage.jsp</result>
+			<result name="notupdated">WEB-INF/JSPView/FacultyView/EditMarksSubject.jsp</result>
+			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>
+		</action>
+		
+		
+		<action name="saveSubjectResult" class="Business.SaveMarks" method="saveSubjectResult">
 			<result name="updated">WEB-INF/JSPView/FacultyView/updatePage.jsp</result>
 			<result name="notupdated">WEB-INF/JSPView/FacultyView/EditMarksSubject.jsp</result>
 			<result name="error">WEB-INF/JSPView/LoginView/Login.jsp</result>

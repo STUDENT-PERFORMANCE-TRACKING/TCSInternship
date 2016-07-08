@@ -35,5 +35,30 @@ public class SelectSubject
 		
 		
 	}
+	
+	
+	public void getStudentList(Model.StudentOrSubject s,ArrayList<Model.StudentOrSubject> r)
+	{
+		Session session = Database.getSessionFactory().openSession();
+		session.beginTransaction();
+		
+		ArrayList<Integer> StudentRollNo=new ArrayList<Integer>();
+		
+		Query query = session.createSQLQuery
+		("Select  RollNo from student");
+		
+		StudentRollNo = (ArrayList<Integer>) query.list();
+		
+		for(Integer r1 : StudentRollNo)
+		{
+			Model.StudentOrSubject s1=new Model.StudentOrSubject();
+			s1.setRollNo((int) r1);
+			
+			r.add(s1);
+			
+		}
+		
+		
+	}
 
 }

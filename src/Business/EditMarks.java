@@ -58,6 +58,50 @@ public class EditMarks implements SessionAware
 		*/
 	}
 	
+	
+	public String createStudentResult()
+	{
+		if(new Controller.Session().getCurrentFacultySession(sessionMap) == null)
+			return "error";
+		
+		System.out.println("edit marks class----");
+		
+		System.out.println("semester : "+s.getResult().getSemesterFirst());
+		System.out.println("branchid : "+s.getStudent().getBranchId());
+		System.out.println("roll no : "+s.getStudent().getRollNo());
+		
+		System.out.println("size : "+r.size());
+		
+		for(Model.StudentOrSubject a : r)
+			System.out.println("subject name : "+a.getStudentSubject());
+			
+		//for(int sss : s.getSubjectId())
+		//	System.out.println("subjectid : "+sss);
+			
+		
+		
+		if(new Controller.EditMarks().createResult(r,s)=="success")
+		   return "updated";
+		
+		else
+		  return "notupdated";	
+		
+		/*
+		System.out.println("kadhgkahk--");
+		for(Model.StudentOrSubject ss : r)
+			System.out.println("kashdgiahsdguiehiurbgv"+ss.getStudentSubject());
+		for(Model.StudentOrSubject ss : r)
+		{
+			System.out.println("semester : "+ss.getResult().getSemesterFirst());
+			System.out.println("branchid : "+ss.getStudent().getBranchId());
+			System.out.println("roll no: "+ss.getStudent().getRollNo());
+			
+		}  */
+		
+		
+	}
+		
+	
 	public ArrayList<Model.StudentOrSubject> getR() {
 		return r;
 	}

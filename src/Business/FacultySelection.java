@@ -18,6 +18,9 @@ public class FacultySelection extends ActionSupport implements SessionAware{
 		
 		sessionMap.put("optionselected", OptionSelected);
 		
+		System.out.println("OptionSelected="+OptionSelected);
+		System.out.println("sessionmap key contain in FacultySelection"+sessionMap.get("optionselected"));
+
 		/*
 		if(OptionSelected == "Create")
 		{
