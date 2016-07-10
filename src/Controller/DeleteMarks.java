@@ -18,7 +18,7 @@ public class DeleteMarks
 			if(s.getCheck() == true)
 			{	
 			session.beginTransaction();
-			Query query = session.createSQLQuery("update studentresult set Visible=:visible where rollno=:RollNo and subjectid=:SubjectId");
+			Query query = session.createSQLQuery("update studentresult set Visible=:visible where RollNo=:RollNo and SubjectId=:SubjectId");
 			query.setParameter("visible",0);
 			query.setParameter("RollNo", ss.getStudent().getRollNo());
 			query.setParameter("SubjectId", s.getSubjectId());
@@ -63,7 +63,7 @@ public class DeleteMarks
 			if(s.getCheck() == true)
 			{	
 			session.beginTransaction();
-			Query query = session.createSQLQuery("update studentresult set Visible=:visible where rollno=:RollNo and subjectid=:SubjectId");
+			Query query = session.createSQLQuery("update studentresult set Visible=:visible where rollno=:RollNo and SubjectId=:SubjectId");
 			query.setParameter("visible",0);
 			query.setParameter("RollNo", s.getRollNo());
 			query.setParameter("SubjectId", s.getSubjectId());

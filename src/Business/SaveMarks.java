@@ -11,16 +11,9 @@ public class SaveMarks implements ModelDriven,SessionAware
 {
 	private Model.EditMarks em = new Model.EditMarks();
 	private ArrayList<Model.StudentOrSubject> r= new ArrayList<Model.StudentOrSubject>();
+    private String OperationStatus;
 	
-	public ArrayList<Model.StudentOrSubject> getR() {
-		return r;
-	}
-
-	public void setR(ArrayList<Model.StudentOrSubject> r) {
-		this.r = r;
-	}
-
-
+	
 	private Map<String, Object> sessionMap;
 	
 	public String save()
@@ -42,7 +35,9 @@ public class SaveMarks implements ModelDriven,SessionAware
 		if(new Controller.SaveMarks().saveSubjectResult(r).equals("success"))
 		  return "updated";
 		else
+		{  OperationStatus="Student Marks Already present in Database";
 			return "notupdated";
+		}
 	}
 	
 	
@@ -63,5 +58,26 @@ public class SaveMarks implements ModelDriven,SessionAware
 		this.sessionMap=sessionMap;
 		
 	}
+	
+	public String getOperationStatus() {
+		return OperationStatus;
+	}
+
+
+
+	public void setOperationStatus(String operationStatus) {
+		OperationStatus = operationStatus;
+	}
+
+	
+	public ArrayList<Model.StudentOrSubject> getR() {
+		return r;
+	}
+
+	public void setR(ArrayList<Model.StudentOrSubject> r) {
+		this.r = r;
+	}
+
+
 
 }

@@ -19,7 +19,7 @@ public class StudentOrSubject
 		
 		StudentRollNo=new ArrayList<Integer>(); 
 		
-		Query query = session.createSQLQuery("select RollNo from Student where BranchId=:branchId");
+		Query query = session.createSQLQuery("select RollNo from student where BranchId=:branchId");
 		query.setParameter("branchId",s.getStudent().getBranchId());
 		StudentRollNo=(ArrayList<Integer>) query.list();
 				
@@ -37,9 +37,9 @@ public class StudentOrSubject
 		ArrayList<String> subject = new ArrayList<String>();
 		
 		Query query = session.createSQLQuery
-				("select semester, subjectname, subjectid from"
-			+ " (select a.branchid, b.semester, b.subjectname, b.subjectid from coursesubject a, subject b where a.subjectid=b.subjectid)"
-			+ " as a where semester=:semester and branchid=:branchId");
+				("select Semester, SubjectName, SubjectId from"
+			+ " (select a.BranchId, b.Semester, b.SubjectName, b.SubjectId from coursesubject a, subject b where a.SubjectId=b.SubjectId)"
+			+ " as a where Semester=:semester and BranchId=:branchId");
 		query.setParameter("semester",s.getResult().getSemesterFirst());
 		query.setParameter("branchId",s.getStudent().getBranchId());
 		

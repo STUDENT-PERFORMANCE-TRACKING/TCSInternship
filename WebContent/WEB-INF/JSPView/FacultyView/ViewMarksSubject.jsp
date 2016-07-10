@@ -122,10 +122,7 @@
 								<h3><strong>Set new data for the respective students : </strong></h3>
 							</div>
 						</thead>
-						 <tr>  
-						           <td> <th> Roll No </th> </td>
-						           <td> <th> Marks </th> </td>
-						 </tr>
+						
 						<s:iterator value="r" status="elemsStatus">
    						 <!--  
   						<s:textfield name="r[%{#elemsStatus.index}].studentSubject" value="%{studentSubject}" theme="simple"/>

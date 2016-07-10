@@ -14,6 +14,9 @@ public class EditMarks implements SessionAware
 	
 	private Model.StudentOrSubject s=new Model.StudentOrSubject();
 	ArrayList<Model.StudentOrSubject> r;
+    private String OperationStatus;
+	
+	
 	
 	private Map<String, Object> sessionMap;
 	
@@ -84,7 +87,9 @@ public class EditMarks implements SessionAware
 		   return "updated";
 		
 		else
+		{ OperationStatus="Subject Marks Already present in Database";
 		  return "notupdated";	
+		}
 		
 		/*
 		System.out.println("kadhgkahk--");
@@ -123,6 +128,17 @@ public class EditMarks implements SessionAware
 		this.sessionMap=sessionMap;
 		
 	}
+	
+	public String getOperationStatus() {
+		return OperationStatus;
+	}
+
+
+
+	public void setOperationStatus(String operationStatus) {
+		OperationStatus = operationStatus;
+	}
+
 
 	
 

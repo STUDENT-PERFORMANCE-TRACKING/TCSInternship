@@ -21,8 +21,8 @@ public class SaveMarks
 		  {
 			session.beginTransaction();
 			Query query = session.createSQLQuery
-				("update studentresult set marks=:newMarks where rollno=:RollNo and subjectid="
-			 + "(select subjectid from subject where subjectname=:name)");
+				("update studentresult set Marks=:newMarks where RollNo=:RollNo and SubjectId="
+			 + "(select SubjectId from subject where SubjectName=:name)");
 			query.setParameter("newMarks",s.getObtainedMarks());
 			query.setParameter("RollNo",s.getRollNo() );
 			query.setParameter("name", s.getSubjectId());
@@ -55,8 +55,8 @@ public class SaveMarks
 
 		Session session = Database.getSessionFactory().openSession();
 		
-		System.out.println("e size in Controller.SaveMarks"+r.size()+"   subjectid"+r.get(0).getSubjectId());
-		int sem= new Controller.SaveMarks().getSubjectSemester(r.get(0).getSubjectId());
+		//System.out.println("e size in Controller.SaveMarks"+r.size()+"   subject name="+r.get(0).getStudentSubject());
+		new Controller.SaveMarks().getSubjectSemester(r);
 		
 		try
 		{
@@ -69,9 +69,9 @@ public class SaveMarks
 						+ " :Semester ,:Year )");
 				query.setParameter("ObtainedMarks",s.getObtainedMarks());
 				query.setParameter("RollNo", s.getRollNo());
-				query.setParameter("SubjectId", s.getSubjectId());
-				query.setParameter("Semester", sem);
-				query.setParameter("Year", (sem+1)/2);
+				query.setParameter("SubjectId", r.get(0).getSubjectId());
+				query.setParameter("Semester", r.get(0).getSemester());
+				query.setParameter("Year", ( r.get(0).getSemester()+1)/2);
 				
 				query.executeUpdate();
 				session.getTransaction().commit();
@@ -97,34 +97,32 @@ public class SaveMarks
 	}
 	
 	
-	public int getSubjectSemester(int subjectid)
+	public void getSubjectSemester(ArrayList<Model.StudentOrSubject> r)
 	{
 
 		Session session = Database.getSessionFactory().openSession();
-		int sem;
 		
 		try
 		{
 				session.beginTransaction();
-				Query query = session.createSQLQuery(" Select Semester from subject where  SubjectId=:subjectid ");
-				query.setParameter("subjectid",subjectid);
+				Query query = session.createSQLQuery(" Select Semester ,SubjectId from subject where  SubjectName=:subjectname ");
+				query.setParameter("subjectname",r.get(0).getStudentSubject());
 				
-				Object r=query.uniqueResult();
+				List<Object[]> r1=query.list();
 				session.getTransaction().commit();
 				
-				sem=(int)r;
-				
-			   
-			  
-		  
-		  return sem;
-		  
+				for(Object[] m:r1)
+				{
+				   r.get(0).setSemester((int) m[0]);
+				   r.get(0).setSubjectId((int) m[1]);
+				}
+		
 		}  
 			
 		catch(Exception e)
 		{
 			System.out.println(e.getMessage());
-			return -1;
+			
 		}
 			
 		finally

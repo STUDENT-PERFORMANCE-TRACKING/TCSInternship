@@ -115,6 +115,8 @@
 				<form action="saveSubjectResult" method="get">
 					
 					<input type="hidden" name='<s:text name="em.studentSubject[0]"/>' value="<s:property value='s.studentSubject'/>" />
+					
+					<h2> <s:property value ="OperationStatus"/> </h2>
 											
 					<table class="table table-borderless table-condensed table-hover">
 
@@ -138,6 +140,7 @@
       					
       				    <s:hidden name="r[%{#elemsStatus.index}].RollNo" value="%{RollNo}" theme="simple"/>
    						<s:hidden name="r[%{#elemsStatus.index}].SubjectId" value="%{SubjectId}" theme="simple"/>
+   						<s:hidden name="r[%{#elemsStatus.index}].studentSubject" value="%{studentSubject}" theme="simple"/>
       					
   					</s:iterator>
 					</table>

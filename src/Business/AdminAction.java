@@ -65,7 +65,7 @@ public class AdminAction extends ActionSupport implements ModelDriven, SessionAw
 		}
 		else
 		  {
-			sp.setInsertstatus("Record Not Inseted");
+			sp.setInsertstatus("Student Already Exist");
 			return "insertionfailed";
 		  }
 	}
@@ -85,7 +85,7 @@ public class AdminAction extends ActionSupport implements ModelDriven, SessionAw
 		}
 		else
 		  {
-			sp.setInsertstatus("Record Not Inseted");
+			sp.setInsertstatus("Faculty Already Exist");
 			return "insertionfailed";
 		  }
 	}

@@ -17,7 +17,7 @@ public class EditMarks
 		  {
 			
 			session.beginTransaction();
-			Query query = session.createSQLQuery("update studentresult set marks=:ObtainedMarks where rollno=:RollNo and subjectid=:SubjectId");
+			Query query = session.createSQLQuery("update studentresult set Marks=:ObtainedMarks where RollNo=:RollNo and SubjectId=:SubjectId");
 			query.setParameter("ObtainedMarks",s.getObtainedMarks());
 			query.setParameter("RollNo", ss.getStudent().getRollNo());
 			query.setParameter("SubjectId", s.getSubjectId());

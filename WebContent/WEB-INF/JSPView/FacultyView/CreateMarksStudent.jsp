@@ -120,6 +120,7 @@
 	
 					<input type="hidden" name="s.Student.RollNo" value="<s:property value="s.Student.RollNo"/>" />
 	
+	                <h2> <s:property value ="OperationStatus"/> </h2>
 					
 					<table class="table table-borderless table-condensed table-hover">
 

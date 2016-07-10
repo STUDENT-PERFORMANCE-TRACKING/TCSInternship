@@ -14,7 +14,10 @@ public class DeleteMarks implements SessionAware
 	
 	private Model.StudentOrSubject s=new Model.StudentOrSubject();
 	ArrayList<Model.StudentOrSubject> r;
+	private String OperationStatus;
 	
+	
+
 	private Map<String, Object> sessionMap;
 	
 	public String deleteStudentMarks()
@@ -42,7 +45,9 @@ public class DeleteMarks implements SessionAware
 		   return "updated";
 		
 		else
+		{ OperationStatus="Marks Cannot be Deleted";
 		  return "notupdated";	
+		}
 		
 		/*
 		System.out.println("kadhgkahk--");
@@ -122,6 +127,16 @@ public class DeleteMarks implements SessionAware
 	public void setSession(Map<String, Object> sessionMap) {
 		this.sessionMap=sessionMap;
 		
+	}
+	
+	public String getOperationStatus() {
+		return OperationStatus;
+	}
+
+
+
+	public void setOperationStatus(String operationStatus) {
+		OperationStatus = operationStatus;
 	}
 
 	

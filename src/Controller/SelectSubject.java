@@ -17,7 +17,7 @@ public class SelectSubject
 		ArrayList<Integer> StudentRollNo=new ArrayList<Integer>();
 		
 		Query query = session.createSQLQuery
-		("Select subjectid, marks, rollno from studentresult where subjectid=(select subjectid from subject where subjectname=:subject)");
+		("Select SubjectId, Marks, RollNo from studentresult where SubjectId=(select SubjectId from subject where SubjectName=:subject)");
 		query.setParameter("subject",s.getStudentSubject());
 		
 		List<Object[]> row = query.list();
@@ -53,6 +53,7 @@ public class SelectSubject
 		{
 			Model.StudentOrSubject s1=new Model.StudentOrSubject();
 			s1.setRollNo((int) r1);
+			s1.setStudentSubject(s.getStudentSubject());
 			
 			r.add(s1);
 			

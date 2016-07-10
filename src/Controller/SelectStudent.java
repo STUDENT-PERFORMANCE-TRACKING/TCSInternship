@@ -19,7 +19,7 @@ public class SelectStudent
 		//Query query = session.createSQLQuery("SELECT Subjectname , subjectid FROM student_performance_tracking.`subject` where semester=:SemesterFirst");
 		
 		Query query = session.createSQLQuery
-				("select * from(select a.subjectname, b.subjectid, b.rollno, b.marks, b.semester from subject a, studentresult b where a.subjectid=b.subjectid) as x where semester=:SemesterFirst and rollno=:RollNo");
+				("select * from(select a.SubjectName, b.SubjectId, b.RollNo, b.Marks, b.Semester from subject a, studentresult b where a.SubjectId=b.SubjectId) as x where Semester=:SemesterFirst and RollNo=:RollNo");
 		query.setParameter("SemesterFirst",s.getResult().getSemesterFirst());
 		query.setParameter("RollNo",s.getStudent().getRollNo());
 
